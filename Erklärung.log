@@ -1,0 +1,589 @@
+Opened log file 'D:\temp\Bug 32147\Erklärung.log'
+0:000> ||
+||
+.  0 Full memory user mini dump: D:\temp\Bug 32147\MINIDUMP-20201217-150359.DMP
+0:000> *** Wir debuggen kein laufendes Programm, sondern einen Crash Dump
+*** Wir debuggen kein laufendes Programm, sondern einen Crash Dump
+0:000> |
+|
+.  0	id: 2b7c	examine	name: C:\MCOSMOSx64\EXE\GEOPAK64.exe
+0:000> *** Das beobachtete Programm ist Geopak
+*** Das beobachtete Programm ist Geopak
+0:000> .sympath "D:\temp\Bug 32147"
+.sympath "D:\temp\Bug 32147"
+Symbol search path is: D:\temp\Bug 32147
+Expanded Symbol search path is: d:\temp\bug 32147
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+OK                                             D:\temp\Bug 32147
+0:000> .sympath+ srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet
+.sympath+ srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet
+Symbol search path is: D:\temp\Bug 32147;srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet
+Expanded Symbol search path is: d:\temp\bug 32147;srv*d:\debug\symbols*\\tfs-build-2014\symbolstore\mitutoyo.mcosmos.basiclibs_release_nuget
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+OK                                             D:\temp\Bug 32147
+Deferred                                       srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet
+0:000> .symfix+ d:\debug\symbols
+.symfix+ d:\debug\symbols
+0:000> .sympath 
+.sympath 
+Symbol search path is: D:\temp\Bug 32147;srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet;srv*
+Expanded Symbol search path is: d:\temp\bug 32147;srv*d:\debug\symbols*\\tfs-build-2014\symbolstore\mitutoyo.mcosmos.basiclibs_release_nuget;SRV*d:\debug\symbols*https://msdl.microsoft.com/download/symbols
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+OK                                             D:\temp\Bug 32147
+Deferred                                       srv*d:\debug\symbols*\\tfs-build-2014\SymbolStore\Mitutoyo.MCOSMOS.BasicLibs_Release_NuGet
+Deferred                                       srv*
+0:000> *** 3 Stellen um PDBs zu finden
+*** 3 Stellen um PDBs zu finden
+0:000> .symopt+ 0x40
+.symopt+ 0x40
+Symbol options are 0x30377:
+  0x00000001 - SYMOPT_CASE_INSENSITIVE
+  0x00000002 - SYMOPT_UNDNAME
+  0x00000004 - SYMOPT_DEFERRED_LOADS
+  0x00000010 - SYMOPT_LOAD_LINES
+  0x00000020 - SYMOPT_OMAP_FIND_NEAREST
+  0x00000040 - SYMOPT_LOAD_ANYTHING
+  0x00000100 - SYMOPT_NO_UNQUALIFIED_LOADS
+  0x00000200 - SYMOPT_FAIL_CRITICAL_ERRORS
+  0x00010000 - SYMOPT_AUTO_PUBLICS
+  0x00020000 - SYMOPT_NO_IMAGE_SEARCH
+0:000> *** Load any PDB, even with mismatched checksum and date
+*** Load any PDB, even with mismatched checksum and date
+0:000> .reload /f
+.reload /f
+.*** WARNING: Unable to verify checksum for GEOPAK64.exe
+.......*** WARNING: Unable to verify checksum for GeoWinBinToAsc64.dll
+.....*** WARNING: Unable to verify checksum for Mafis_3DCmp64.dll
+.......*** WARNING: Unable to verify checksum for MnGeoWnListCtrl64.dll
+.*** WARNING: Unable to verify checksum for MnRecordPoints64.dll
+.*** WARNING: Unable to verify checksum for UncertaintyCalculator64.dll
+..
+
+Press ctrl-c (cdb, kd, ntsd) or ctrl-break (windbg) to abort symbol loads that take too long.
+Run !sym noisy before .reload to track down problems loading symbols.
+
+..*** WARNING: Unable to verify checksum for Mitutoyo.MCOSMOS.View3D64.dll
+..*** WARNING: Unable to verify checksum for MAFIS64.dll
+..*** WARNING: Unable to verify checksum for Mitutoyo.Automation.IOCommunication.Client.Native64.dll
+...*** WARNING: Unable to verify checksum for MnMath64.dll
+.*** WARNING: Unable to verify checksum for MnWin64.dll
+.*** WARNING: Unable to verify checksum for MnTogether64.dll
+.*** WARNING: Unable to verify checksum for MnLogFile64.dll
+...*** WARNING: Unable to verify checksum for MnReport64.dll
+.*** WARNING: Unable to verify checksum for MMessage64.dll
+.*** WARNING: Unable to verify checksum for MnCrypt64.dll
+.*** WARNING: Unable to verify checksum for MnGeom364.dll
+.*** WARNING: Unable to verify checksum for MnGeoPPrg264.dll
+.*** WARNING: Unable to verify checksum for MnProtocol64.dll
+.*** WARNING: Unable to verify checksum for MnRefPart264.dll
+.*** WARNING: Unable to verify checksum for MnAbout64.dll
+.*** WARNING: Unable to verify checksum for MnVCmmIF64.dll
+.*** WARNING: Unable to verify checksum for MnFormula264.dll
+.*** WARNING: Unable to verify checksum for MnCtrl64.dll
+.*** WARNING: Unable to verify checksum for MnCMessage64.dll
+.*** WARNING: Unable to verify checksum for MnStatCom764.dll
+.*** WARNING: Unable to verify checksum for MnYlmtri64.dll
+.*** WARNING: Unable to verify checksum for MnBaseShape64.dll
+.*** WARNING: Unable to verify checksum for MnHoleShape64.dll
+.*** WARNING: Unable to verify checksum for MnQuatMath64.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Automation.Service.EventSystem.MCOSMOS.dll
+.*** WARNING: Unable to verify checksum for MMCError64.dll
+.*** WARNING: Unable to verify checksum for MNFormGeoMCM64.dll
+.*** WARNING: Unable to verify checksum for MMCPrbAccessIF64.dll
+.*** WARNING: Unable to verify checksum for MMCRio64.dll
+.*** WARNING: Unable to verify checksum for MMCDeviceConfigIF64.dll
+.*** WARNING: Unable to verify checksum for MMCPropertyIF64.dll
+.*** WARNING: Unable to verify checksum for MMCRackBinIF64.dll
+.
+*** WARNING: Unable to verify checksum for MMCRotaBinIF64.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.MCOSMOS.MCOSMOSLibs.MnFilter64.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.MCOSMOS.MCOSMOSLibs.SplineFilter64.dll
+............*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Interop.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Hoops.Diagnostics.Interop.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.ImageTools.Interop.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.WPF.Interop.dll
+.*** WARNING: Unable to verify checksum for MnJpeg64.dll
+..*** WARNING: Unable to verify checksum for Mitutoyo.Automation.IOCommunication.Client.Cli64.dll
+..*** WARNING: Unable to verify checksum for GeoMMEBridge64.dll
+.*** WARNING: Unable to verify checksum for MnSFFileIO64.dll
+.*** WARNING: Unable to verify checksum for MnBlockMath64.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Automation.Service.EventSystem.Native.dll
+....*** WARNING: Unable to verify checksum for Mitutoyo.Common.MathEngine.dll
+.*** WARNING: Unable to verify checksum for libcrypto-1_1-x64.dll
+..*** WARNING: Unable to verify checksum for cpprest141_2_10.dll
+....*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Runout.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_CombinedEvaluations.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Sizes.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_DatumSystem.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Location.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Orientation.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Pattern.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MBI_Form.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MathBasic.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.MathBasicInterface.dll
+..*** WARNING: Unable to verify checksum for Mitutoyo.Common.SLP.dll
+..*** WARNING: Unable to verify checksum for MnBasic64.dll
+.*** WARNING: Unable to verify checksum for MMCServiceAccess64.dll
+.*** WARNING: Unable to verify checksum for MMCIppClient64.dll
+.*** WARNING: Unable to verify checksum for MMCBusiness64.dll
+.*** WARNING: Unable to verify checksum for csqpx64.dll
+.*** WARNING: Unable to verify checksum for mmcir_164.dll
+..*** WARNING: Unable to verify checksum for MMCMachINI64.dll
+.*** WARNING: Unable to verify checksum for MMCMachine64.dll
+.*** WARNING: Unable to verify checksum for MMCPrbSysIF64.dll
+.*** WARNING: Unable to verify checksum for MMCRotaSysIF64.dll
+....*** WARNING: Unable to verify checksum for MMCCoord64.dll
+.
+*** WARNING: Unable to verify checksum for MMCPH20Access64.dll
+.*** WARNING: Unable to verify checksum for SharedMemoryClient64.dll
+.*** WARNING: Unable to verify checksum for MMCRackDataIF64.dll
+...........................*** WARNING: Unable to verify checksum for MDMngr.dll
+........................*** WARNING: Unable to verify checksum for netstandard.ni.dll
+.*** WARNING: Unable to verify checksum for System.ni.dll
+.*** WARNING: Unable to verify checksum for System.Core.ni.dll
+.*** WARNING: Unable to verify checksum for System.Configuration.ni.dll
+.*** WARNING: Unable to verify checksum for System.Xml.ni.dll
+....*** WARNING: Unable to verify checksum for System.Drawing.ni.dll
+.*** WARNING: Unable to verify checksum for System.Runtime.ni.dll
+..
+...........*** WARNING: Unable to verify checksum for Qt5Widgets.dll
+.*** WARNING: Unable to verify checksum for Qt5Core.dll
+.*** WARNING: Unable to verify checksum for Qt5Gui.dll
+.*** WARNING: Unable to verify checksum for Qt5PrintSupport.dll
+............................*** WARNING: Unable to verify checksum for Microsoft.CSharp.ni.dll
+.*** WARNING: Unable to verify checksum for System.Dynamic.ni.dll
+.*** WARNING: Unable to verify checksum for System.Numerics.ni.dll
+.*** WARNING: Unable to verify checksum for System.Runtime.Serialization.ni.dll
+.*** WARNING: Unable to verify checksum for System.Data.ni.dll
+....*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Interop.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Automation.IOCommunication.Client.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Automation.IOCommunication.Common.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Automation.IOCommunication.Client.Cli64.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Types.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Hoops.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Html.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.MiCAT.Core.StdLib.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.MiCAT.Core.Functional.dll
+...*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.dll
+..*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Scene.dll
+.
+*** WARNING: Unable to verify checksum for Mitutoyo.Common.View3D.Scene.Hoops.dll
+.*** WARNING: Unable to verify checksum for Mitutoyo.MiCAT.Core.Math.dll
+.....
+Loading unloaded module list
+..........................
+
+************* Symbol Loading Error Summary **************
+Module name            Error
+WkWin64                The system cannot find the file specified
+GeoWinBinToAsc64       The system cannot find the file specified
+Mafis_3DCmp64          The system cannot find the file specified
+MnGeoWnListCtrl64      The system cannot find the file specified
+MnRecordPoints64       The system cannot find the file specified
+UncertaintyCalculator6 The system cannot find the file specified
+Mitutoyo.MCOSMOS.View3 The system cannot find the file specified
+MAFIS64                The system cannot find the file specified
+Mitutoyo.Automation.IO The system cannot find the file specified
+WibuCm64               The system cannot find the file specified
+Mitutoyo.Automation.Se The system cannot find the file specified
+MMCError64             The system cannot find the file specified
+MNFormGeoMCM64         The system cannot find the file specified
+MMCPrbAccessIF64       The system cannot find the file specified
+MMCRio64               The system cannot find the file specified
+MMCDeviceConfigIF64    The system cannot find the file specified
+MMCPropertyIF64        The system cannot find the file specified
+MMCRackBinIF64         The system cannot find the file specified
+MMCRotaBinIF64         The system cannot find the file specified
+Mitutoyo.MCOSMOS.MCOSM The system cannot find the file specified
+Mitutoyo.MCOSMOS.MCOSM The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Automation.IO The system cannot find the file specified
+Mitutoyo.Automation.Se The system cannot find the file specified
+Mitutoyo.Common.MathEn The system cannot find the file specified
+libcrypto-1_1-x64      The system cannot find the file specified
+cpprest141_2_10        The system cannot find the file specified
+Mitutoyo.Common.MBI_Ru The system cannot find the file specified
+Mitutoyo.Common.MBI_Co The system cannot find the file specified
+Mitutoyo.Common.MBI_Si The system cannot find the file specified
+Mitutoyo.Common.MBI_Da The system cannot find the file specified
+Mitutoyo.Common.MBI_Lo The system cannot find the file specified
+Mitutoyo.Common.MBI_Or The system cannot find the file specified
+Mitutoyo.Common.MBI_Pa The system cannot find the file specified
+Mitutoyo.Common.MBI_Fo The system cannot find the file specified
+Mitutoyo.Common.MathBa The system cannot find the file specified
+Mitutoyo.Common.MathBa The system cannot find the file specified
+Mitutoyo.Common.SLP    The system cannot find the file specified
+MMCServiceAccess64     The system cannot find the file specified
+MMCIppClient64         The system cannot find the file specified
+MMCBusiness64          The system cannot find the file specified
+csqpx64                The system cannot find the file specified
+mmcir_164              The system cannot find the file specified
+MMCMachINI64           The system cannot find the file specified
+MMCMachine64           The system cannot find the file specified
+MMCPrbSysIF64          The system cannot find the file specified
+MMCRotaSysIF64         The system cannot find the file specified
+MMCCoord64             The system cannot find the file specified
+MMCPH20Access64        The system cannot find the file specified
+SharedMemoryClient64   The system cannot find the file specified
+MMCRackDataIF64        The system cannot find the file specified
+nviewH64               The system cannot find the file specified
+MDMngr                 The system cannot find the file specified
+vsFlex8l               The system cannot find the file specified
+netstandard.ni         The system cannot find the file specified
+System.Core.ni         The system cannot find the file specified
+System.Configuration.n The system cannot find the file specified
+System.Runtime.ni      The system cannot find the file specified
+hcsmvo2500_x64         The system cannot find the file specified
+hoops_stream2500_x64_v The system cannot find the file specified
+hoops_mvo_mgk2500_x64_ The system cannot find the file specified
+hoops2500_x64_v141     The system cannot find the file specified
+cgm32500_x64           The system cannot find the file specified
+hpgl22500_x64          The system cannot find the file specified
+postscript2500_x64     The system cannot find the file specified
+pdf2500_x64            The system cannot find the file specified
+printf2500_x64         The system cannot find the file specified
+qt2500_x64             The system cannot find the file specified
+Qt5Widgets             The system cannot find the file specified
+Qt5Core                The system cannot find the file specified
+Qt5Gui                 The system cannot find the file specified
+Qt5PrintSupport        The system cannot find the file specified
+dx11_2500_x64          The system cannot find the file specified
+hcs2500_x64            The system cannot find the file specified
+nvoglv64               The system cannot find the file specified
+eamsi                  The system cannot find the file specified
+nvldumdx               The system cannot find the file specified
+nvwgf2umx              The system cannot find the file specified
+nvapi64                The system cannot find the file specified
+Microsoft.CSharp.ni    The system cannot find the file specified
+System.Dynamic.ni      The system cannot find the file specified
+System.Data.ni         The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Automation.IO The system cannot find the file specified
+Mitutoyo.Automation.IO The system cannot find the file specified
+Mitutoyo.Automation.IO The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.MiCAT.Core.St The system cannot find the file specified
+Mitutoyo.MiCAT.Core.Fu The system cannot find the file specified
+System.Runtime.Compile The system cannot find the file specified
+Unity.Container        The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Unity.Abstractions     The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.Common.View3D The system cannot find the file specified
+Mitutoyo.MiCAT.Core.Ma The system cannot find the file specified
+hoops_mvo2500_cs141    The system cannot find the file specified
+hoops2500_cs141        The system cannot find the file specified
+hoops_stream2500_cs141 The system cannot find the file specified
+Newtonsoft.Json        The system cannot find the file specified
+
+You can troubleshoot most symbol related issues by turning on symbol loading diagnostics (!sym noisy) and repeating the command that caused symbols to be loaded.
+You should also verify that your symbol search path (.sympath) is correct.
+0:000> *** PDBs are loaded. We have a link beween binary and source
+*** PDBs are loaded. We have a link beween binary and source
+0:000> lm m geopak*
+lm m geopak*
+Browse full module list
+start             end                 module name
+00007ff7`fa2d0000 00007ff7`fc142000   GEOPAK64 C (private pdb symbols)  d:\temp\bug 32147\GEOPAK64.pdb
+0:000> lm m mngeom364
+lm m mngeom364
+Browse full module list
+start             end                 module name
+00007ff9`95c00000 00007ff9`95c2c000   MnGeom364 C (private pdb symbols)  d:\temp\bug 32147\MnGeom364.pdb
+0:000> *** We have all information for local variables etc.
+*** We have all information for local variables etc.
+0:000> lm m ntdll
+lm m ntdll
+Browse full module list
+start             end                 module name
+00007ff9`d4f50000 00007ff9`d5146000   ntdll      (pdb symbols)          d:\debug\symbols\ntdll.pdb\1EB9FACB04C73C5DEA7160764CD333D01\ntdll.pdb
+0:000> *** Downloading from Microsoft worked
+*** Downloading from Microsoft worked
+0:000> .exr -1
+.exr -1
+ExceptionAddress: 00007ff995c1d48e (MnGeom364!tg_ajc_lin_int+0x000000000000014e)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000000
+   Parameter[1]: 0000000000000000
+Attempt to read from address 0000000000000000
+0:000> *** Access Violation = NullPointer Exception
+*** Access Violation = NullPointer Exception
+0:000> k
+k
+ # Child-SP          RetAddr               Call Site
+00 00000056`12337058 00000193`813b1bec     ntdll!NtGetContextThread+0x14
+01 00000056`12337060 0000001f`00000002     0x00000193`813b1bec
+02 00000056`12337068 0000003e`0000003e     0x0000001f`00000002
+03 00000056`12337070 00009c67`02cb62cf     0x0000003e`0000003e
+04 00000056`12337078 00009c67`02cb7d3f     0x00009c67`02cb62cf
+05 00000056`12337080 00000000`00000000     0x00009c67`02cb7d3f
+0:000> .ecxr
+.ecxr
+rax=0000000000000000 rbx=000000561233b3f8 rcx=000000561233af18
+rdx=ffffffffffffffe0 rsi=000000561233b490 rdi=000000561233b470
+rip=00007ff995c1d48e rsp=000000561233afe0 rbp=000000561233b0e0
+ r8=00000193a1a21c90  r9=0000000000000014 r10=000000000000003c
+r11=000000561233afd0 r12=00000193a1a21c90 r13=000000561233b608
+r14=0000000000000014 r15=0000000000000001
+iopl=0         nv up ei pl nz na pe nc
+cs=0033  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010202
+MnGeom364!tg_ajc_lin_int+0x14e:
+00007ff9`95c1d48e 0f1000          movups  xmm0,xmmword ptr [rax] ds:00000000`00000000=????????????????????????????????
+0:000> *** Switch to exception
+*** Switch to exception
+0:000> k
+k
+  *** Stack trace for last set context - .thread/.cxr resets it
+ # Child-SP          RetAddr               Call Site
+00 00000056`1233afe0 00007ff9`95c1d8b8     MnGeom364!tg_ajc_lin_int+0x14e [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 955] 
+01 00000056`1233b350 00007ff9`95c1fefb     MnGeom364!tg_ajc_lin_rl+0xd8 [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 993] 
+02 00000056`1233b560 00007ff7`fae310df     MnGeom364!tg_inn_ajc_lin+0x2b [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 1026] 
+03 00000056`1233b6b0 00007ff7`fae4a291     GEOPAK64!pel_line+0x77f [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 5498] 
+04 00000056`1233bf00 00007ff7`fae49687     GEOPAK64!pelm_comp_elem_intern+0xc01 [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 8255] 
+05 00000056`1233e730 00007ff7`fa7f5a88     GEOPAK64!pelm_comp_elem+0x77 [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 8651] 
+06 00000056`1233e790 00007ff7`fa920b77     GEOPAK64!fctctr_cpnt_end+0x748 [g:\git\mcosmos50\geopak\source\geopak\fctctrmngr.cpp @ 1376] 
+07 00000056`1233efe0 00007ff7`fa91d26c     GEOPAK64!fctmngr_wrk_fct+0x1177 [g:\git\mcosmos50\geopak\source\geopak\fct_mngr.cpp @ 1314] 
+08 00000056`1233f070 00007ff7`faaf8df3     GEOPAK64!fctmngr_wrk+0x68c [g:\git\mcosmos50\geopak\source\geopak\fct_mngr.cpp @ 1924] 
+09 00000056`1233f120 00007ff7`fabd9301     GEOPAK64!CGeopakDoc::PartProgCmdWrk+0x13 [g:\git\mcosmos50\geopak\source\geopak\geopakdoc.cpp @ 3711] 
+0a 00000056`1233f150 00007ff9`ab5287f9     GEOPAK64!CMainFrame::OnMsgNvUserEvent+0x281 [g:\git\mcosmos50\geopak\source\geopak\mainfrm.cpp @ 2215] 
+0b 00000056`1233f1f0 00007ff9`ab527c0f     mfc140!CWnd::OnWndMsg+0xba9 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 2698] 
+0c 00000056`1233f370 00007ff9`ab525423     mfc140!CWnd::WindowProc+0x3f [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 2099] 
+0d 00000056`1233f3b0 00007ff9`ab5257f4     mfc140!AfxCallWndProc+0x123 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 265] 
+0e 00000056`1233f4a0 00007ff9`ab3cb059     mfc140!AfxWndProc+0x54 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 417] 
+0f 00000056`1233f4e0 00007ff9`d374e858     mfc140!AfxWndProcBase+0x49 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\afxstate.cpp @ 299] 
+10 00000056`1233f520 00007ff9`d374e299     user32!UserCallWinProcCheckWow+0x2f8
+11 00000056`1233f6b0 00007ff9`ab50e572     user32!DispatchMessageWorker+0x249
+12 00000056`1233f730 00007ff9`ab50ee75     mfc140!AfxInternalPumpMessage+0x52 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\thrdcore.cpp @ 183] 
+13 00000056`1233f760 00007ff9`ab541270     mfc140!CWinThread::Run+0x75 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\thrdcore.cpp @ 629] 
+14 00000056`1233f7a0 00007ff7`fb0b300a     mfc140!AfxWinMain+0xc0 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\winmain.cpp @ 61] 
+15 (Inline Function) --------`--------     GEOPAK64!invoke_main+0x21 [d:\agent\_work\3\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl @ 102] 
+16 00000056`1233f7e0 00007ff9`d3c67034     GEOPAK64!__scrt_common_main_seh+0x106 [d:\agent\_work\3\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl @ 288] 
+17 00000056`1233f820 00007ff9`d4f9d0d1     kernel32!BaseThreadInitThunk+0x14
+18 00000056`1233f850 00000000`00000000     ntdll!RtlUserThreadStart+0x21
+0:000> *** Confirmed: crash location is the same as in bug description
+*** Confirmed: crash location is the same as in bug description
+0:000> .frame 0
+.frame 0
+00 00000056`1233afe0 00007ff9`95c1d8b8     MnGeom364!tg_ajc_lin_int+0x14e [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 955] 
+0:000> *** Have a look at the topmost method
+*** Have a look at the topmost method
+0:000> dv
+dv
+     ulNoofPnts = 0x14
+        aPoints = 0x00000193`a1a21c90
+        pMatDir = <value unavailable>
+           pLoc = 0x00000056`1233b470
+           pDir = 0x00000056`1233b490
+         DirLam = True (0n1)
+        bFitLin = True (0n1)
+       Extremum = <value unavailable>
+            Loc = struct VecR8
+      LocalBord = <value unavailable>
+           Dist = <value unavailable>
+          bCond = <value unavailable>
+         MatDir = struct VecR8
+            MxD = 0
+         SupPnt = struct VecR8
+            Dir = struct VecR8
+            Tmp = 0
+        uMaxRep = 1
+        LocBord = <value unavailable>
+0:000> *** Local variables and variables passed as parameter
+*** Local variables and variables passed as parameter
+0:000> ? 0x14
+? 0x14
+Evaluate expression: 20 = 00000000`00000014
+0:000> *** We have 20 Punkte
+*** We have 20 Punkte
+0:000> dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90)
+dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90)
+((MnGeom364!VecR8 *)0x193a1a21c90)                 : 0x193a1a21c90 [Type: VecR8 *]
+    [+0x000] x                : -10.000000 [Type: double]
+    [+0x008] y                : 0.036740 [Type: double]
+    [+0x010] z                : 0.000000 [Type: double]
+0:000> *** The first point is -10, 0.03, 0
+*** The first point is -10, 0.03, 0
+0:000> dt MnGeom364!VecR8
+dt MnGeom364!VecR8
+   +0x000 x                : Float
+   +0x008 y                : Float
+   +0x010 z                : Float
+0:000> *** VecR8 consists of 3 doubles (8 byte in size)
+*** VecR8 consists of 3 doubles (8 byte in size)
+0:000> dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90 + 0n24)
+dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90 + 0n24)
+((MnGeom364!VecR8 *)0x193a1a21c90 + 0n24)                 : 0x193a1a21ed0 [Type: VecR8 *]
+    [+0x000] x                : 0.000000 [Type: double]
+    [+0x008] y                : 0.000000 [Type: double]
+    [+0x010] z                : 0.000000 [Type: double]
+0:000> *** The second point is 0,0,0
+*** The second point is 0,0,0
+0:000> dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90 + 0n48)
+dx -r1 ((MnGeom364!VecR8 *)0x193a1a21c90 + 0n48)
+((MnGeom364!VecR8 *)0x193a1a21c90 + 0n48)                 : 0x193a1a22110 [Type: VecR8 *]
+    [+0x000] x                : -0.012910 [Type: double]
+    [+0x008] y                : -2.999990 [Type: double]
+    [+0x010] z                : 0.015820 [Type: double]
+0:000> *** etc.
+*** etc.
+0:000> dD /c 3 0x193a1a21c90 L0n60
+dD /c 3 0x193a1a21c90 L0n60
+00000193`a1a21c90                     -10                0.03674                      0
+00000193`a1a21ca8                      -9                 0.0205                      0
+00000193`a1a21cc0                      -8                0.01371                      0
+00000193`a1a21cd8                      -7                  0.085                      0
+00000193`a1a21cf0                      -6                 0.0286                      0
+00000193`a1a21d08                      -5                0.02998                      0
+00000193`a1a21d20                      -4               -0.05377                      0
+00000193`a1a21d38                      -3                0.03051                      0
+00000193`a1a21d50                      -2                0.06661                      0
+00000193`a1a21d68                      -1               -0.09365                      0
+00000193`a1a21d80                    -9.5               -0.09092                      0
+00000193`a1a21d98                    -8.5                0.03863                      0
+00000193`a1a21db0                    -7.5                0.04022                      0
+00000193`a1a21dc8                    -6.5               -0.06106                      0
+00000193`a1a21de0                    -5.5                0.05629                      0
+00000193`a1a21df8                    -4.5               -0.00172                      0
+00000193`a1a21e10                    -3.5                0.08086                      0
+00000193`a1a21e28                    -2.5               -0.04595                      0
+00000193`a1a21e40                    -1.5                -0.0227                      0
+00000193`a1a21e58                    -0.5                0.01736                      0
+0:000> *** these are the 20 points
+*** these are the 20 points
+0:000> dv
+dv
+     ulNoofPnts = 0x14
+        aPoints = 0x00000193`a1a21c90
+        pMatDir = <value unavailable>
+           pLoc = 0x00000056`1233b470
+           pDir = 0x00000056`1233b490
+         DirLam = True (0n1)
+        bFitLin = True (0n1)
+       Extremum = <value unavailable>
+            Loc = struct VecR8
+      LocalBord = <value unavailable>
+           Dist = <value unavailable>
+          bCond = <value unavailable>
+         MatDir = struct VecR8
+            MxD = 0
+         SupPnt = struct VecR8
+            Dir = struct VecR8
+            Tmp = 0
+        uMaxRep = 1
+        LocBord = <value unavailable>
+0:000> dx -r1 (*((MnGeom364!VecR8 *)0x561233b250))
+dx -r1 (*((MnGeom364!VecR8 *)0x561233b250))
+(*((MnGeom364!VecR8 *)0x561233b250))                 [Type: VecR8]
+    [+0x000] x                : -0.002335 [Type: double]
+    [+0x008] y                : -0.999997 [Type: double]
+    [+0x010] z                : -0.000000 [Type: double]
+0:000> dx -r1 ((MnGeom364!VecR8 *)0x561233b470)
+dx -r1 ((MnGeom364!VecR8 *)0x561233b470)
+((MnGeom364!VecR8 *)0x561233b470)                 : 0x561233b470 [Type: VecR8 *]
+    [+0x000] x                : 0.000000 [Type: double]
+    [+0x008] y                : -1.#QNAN0 [Type: double]
+    [+0x010] z                : 4.750082 [Type: double]
+0:000> dx -r1 (*((MnGeom364!VecR8 *)0x561233b028))
+dx -r1 (*((MnGeom364!VecR8 *)0x561233b028))
+(*((MnGeom364!VecR8 *)0x561233b028))                 [Type: VecR8]
+    [+0x000] x                : 0.999997 [Type: double]
+    [+0x008] y                : -0.002335 [Type: double]
+    [+0x010] z                : 0.000000 [Type: double]
+0:000> dq /c 3 0x561233b470 L3
+dq /c 3 0x561233b470 L3
+00000056`1233b470  00000000`00000000 ffffffff`ffffffc8 40130015`997ff316
+0:000> ? ffffffff`ffffffc8
+? ffffffff`ffffffc8
+Evaluate expression: -56 = ffffffff`ffffffc8
+0:000> k
+k
+  *** Stack trace for last set context - .thread/.cxr resets it
+ # Child-SP          RetAddr               Call Site
+00 00000056`1233afe0 00007ff9`95c1d8b8     MnGeom364!tg_ajc_lin_int+0x14e [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 955] 
+01 00000056`1233b350 00007ff9`95c1fefb     MnGeom364!tg_ajc_lin_rl+0xd8 [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 993] 
+02 00000056`1233b560 00007ff7`fae310df     MnGeom364!tg_inn_ajc_lin+0x2b [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 1026] 
+03 00000056`1233b6b0 00007ff7`fae4a291     GEOPAK64!pel_line+0x77f [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 5498] 
+04 00000056`1233bf00 00007ff7`fae49687     GEOPAK64!pelm_comp_elem_intern+0xc01 [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 8255] 
+05 00000056`1233e730 00007ff7`fa7f5a88     GEOPAK64!pelm_comp_elem+0x77 [g:\git\mcosmos50\geopak\source\geopak\pelmadcp.cpp @ 8651] 
+06 00000056`1233e790 00007ff7`fa920b77     GEOPAK64!fctctr_cpnt_end+0x748 [g:\git\mcosmos50\geopak\source\geopak\fctctrmngr.cpp @ 1376] 
+07 00000056`1233efe0 00007ff7`fa91d26c     GEOPAK64!fctmngr_wrk_fct+0x1177 [g:\git\mcosmos50\geopak\source\geopak\fct_mngr.cpp @ 1314] 
+08 00000056`1233f070 00007ff7`faaf8df3     GEOPAK64!fctmngr_wrk+0x68c [g:\git\mcosmos50\geopak\source\geopak\fct_mngr.cpp @ 1924] 
+09 00000056`1233f120 00007ff7`fabd9301     GEOPAK64!CGeopakDoc::PartProgCmdWrk+0x13 [g:\git\mcosmos50\geopak\source\geopak\geopakdoc.cpp @ 3711] 
+0a 00000056`1233f150 00007ff9`ab5287f9     GEOPAK64!CMainFrame::OnMsgNvUserEvent+0x281 [g:\git\mcosmos50\geopak\source\geopak\mainfrm.cpp @ 2215] 
+0b 00000056`1233f1f0 00007ff9`ab527c0f     mfc140!CWnd::OnWndMsg+0xba9 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 2698] 
+0c 00000056`1233f370 00007ff9`ab525423     mfc140!CWnd::WindowProc+0x3f [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 2099] 
+0d 00000056`1233f3b0 00007ff9`ab5257f4     mfc140!AfxCallWndProc+0x123 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 265] 
+0e 00000056`1233f4a0 00007ff9`ab3cb059     mfc140!AfxWndProc+0x54 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\wincore.cpp @ 417] 
+0f 00000056`1233f4e0 00007ff9`d374e858     mfc140!AfxWndProcBase+0x49 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\afxstate.cpp @ 299] 
+10 00000056`1233f520 00007ff9`d374e299     user32!UserCallWinProcCheckWow+0x2f8
+11 00000056`1233f6b0 00007ff9`ab50e572     user32!DispatchMessageWorker+0x249
+12 00000056`1233f730 00007ff9`ab50ee75     mfc140!AfxInternalPumpMessage+0x52 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\thrdcore.cpp @ 183] 
+13 00000056`1233f760 00007ff9`ab541270     mfc140!CWinThread::Run+0x75 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\thrdcore.cpp @ 629] 
+14 00000056`1233f7a0 00007ff7`fb0b300a     mfc140!AfxWinMain+0xc0 [D:\a01\_work\6\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\winmain.cpp @ 61] 
+15 (Inline Function) --------`--------     GEOPAK64!invoke_main+0x21 [d:\agent\_work\3\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl @ 102] 
+16 00000056`1233f7e0 00007ff9`d3c67034     GEOPAK64!__scrt_common_main_seh+0x106 [d:\agent\_work\3\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl @ 288] 
+17 00000056`1233f820 00007ff9`d4f9d0d1     kernel32!BaseThreadInitThunk+0x14
+18 00000056`1233f850 00000000`00000000     ntdll!RtlUserThreadStart+0x21
+0:000> .frame 1
+.frame 1
+01 00000056`1233b350 00007ff9`95c1fefb     MnGeom364!tg_ajc_lin_rl+0xd8 [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 993] 
+0:000> dv
+dv
+     ulNoofPnts = 0x14
+        aPoints = 0x00000193`a1a21c90
+        pMatDir = 0x00000056`1233bd10
+           pLoc = 0x00000056`1233b5c0
+           pDir = 0x00000056`1233e090
+        pMaxPnt = 0x00000056`1233b608
+        pMinPnt = 0x00000056`1233b5a0
+        bFitLin = True (0n1)
+           DirR = struct VecR8
+       Extremum = <value unavailable>
+         MaxPnt = <value unavailable>
+           Dist = <value unavailable>
+         MatDir = struct VecR8
+            MxD = -5.25
+           LocR = struct VecR8
+           DirL = struct VecR8
+            Tmp = 0
+           LocL = struct VecR8
+          vTemp = <value unavailable>
+          Local = <value unavailable>
+         LocalL = <value unavailable>
+         MinPnt = <value unavailable>
+         LocalR = <value unavailable>
+0:000> .frame 2
+.frame 2
+02 00000056`1233b560 00007ff7`fae310df     MnGeom364!tg_inn_ajc_lin+0x2b [d:\gitrepos\mitutoyo.mcosmos.basicslibs\source\mngeom3\tg_geom.c @ 1026] 
+0:000> dv
+dv
+     ulNoofPnts = 0x1233af18
+        aPoints = 0xffffffff`ffffffe0
+        pMatDir = 0x00000056`1233bd10
+           pLoc = 0x00000000`00000014
+           pDir = 0x00000056`1233e090
+    pdftLambda1 = 0x00000056`1233be48
+    pdftLambda2 = 0x00000056`1233e090
+      pftMaxDif = 0x00000056`1233e0c8
+            Loc = <value unavailable>
+         MaxPnt = struct VecR8
+           Dist = <value unavailable>
+         MatDir = <value unavailable>
+            Tmp = 1.8264252057644839588e-312
+         MinPnt = <value unavailable>
+0:000> .logclose
+.logclose
+Closing open log file D:\temp\Bug 32147\Erklärung.log
