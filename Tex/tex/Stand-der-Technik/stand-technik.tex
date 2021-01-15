@@ -1,0 +1,67 @@
+\chapter{Stand der Technik}
+\label{ch:stand_technik}
+
+\section{Systeme in Betrieb}
+\label{sec:systeme_betrieb}
+
+Zur Verbesserung der eigenen Kommunikations- und Small-Talk-Fähigkeiten, existieren bereits einige theoretische (sowohl digital als auch gedruckt), menschliche und anderweitige Hilfestellungen:
+\begin{itemize}
+      \item \textbf{Menschliche Hilfestellungen} \newline
+            Menschen mit Kommunikationsschwäche können sich einen Coach zurate ziehen, welcher ihnen die benötigten Kenntnisse vermittelt und eventuell in Praxiseinsätzen vertieft. \newline
+            Ähnlich zu einem Coach können auch Seminare besucht werden, welche durch eine höhere Teilnehmerzahl mehr Praxisnähe bieten. \newline
+            Als weitere menschliche Unterstützung bietet sich das Hinzunehmen einer Begleitperson, wie beispielsweise einem/r Freund/in an. Sie kann beim Einstieg in ein Gespräch zur Hilfe genommen werden oder das gesamte Gespräch über eine moderierende Rolle einnehmen.
+      \item \textbf{Theoretische Hilfestellungen} \newline
+            Es können auch Internetportale oder Bücher als Quellen für Tipps und Ratschläge verwendet werden. So bietet beispielsweise \glqq Kommunikation Lernen\grqq{} \cite{Kommunikationlernen:blog} verschiedene Blogbeiträge mit Tipps, Methoden und Checklisten. Die Beiträge dienen als Ratgeber und können Anregungen für zukünftige Gesprächssituationen liefern. \newline
+            Ähnliche Hilfestellungen kann man auch aus Büchern beziehen. So haben sich Psychologen, wie zum Beispiel Frank Naumann in seinem Buch \glqq Die Kunst Des Smalltalk\grqq{} \cite{Naumann:Die-kunst-des-smalltalk}, mit der Thematik des lockeren Gesprächs befasst und Hilfestellungen bereit gestellt.
+      \item \textbf{Weitere Hilfestellungen} \newline
+            \zitattext{Im Verlauf der Konversation} [Abstract] deutet darauf hin, dass der Assistent mobil sein soll. Daraus ergeben sich drei Gerätearten, auf welchen die Software laufen kann: Laptops, mobile Endgeräte und \glspl{smartwatch}. Im mobilen Sektor bestehen bereits Möglichkeiten, um die eigenen Small Talk-Fähigkeiten zu verbessern. Die folgenden Apps implementieren Lösungsmöglichkeiten zu einzelnen Aspekten der in Kapitel \ref{sec:problemstellung} beschriebenen Problematik.
+            \begin{itemize}
+                  \label{list:apps}
+                  \item  \zitattext{Topicks - Gesprächsthemen und mehr!} \cite{App:topicks} stellt Nutzern Gesprächsstoff für verschiedene Themen bereit. Fragen und Anregungen können zufällig oder über verschiedene Kategorien (Technologie, Kunst, Beruf, Sport, Musik, Filme und Serien, \dots) ausgewählt werden. Zu bereits bestehenden Kategorien können auch weitere Themen hinzugefügt werden, diese sind aber nur lokal verfügbar.
+                  \item Mit der App \zitattext{Beyond Small Talk} \cite{App:beyond} werden Anwendern Fragen vorgeschlagen. Die Fragen sollen ein tiefergehendes Gespräch aufbauen, welches nicht auf der oberflächlichen Ebene des Small Talks bleibt. Die App wurde von einem Psychologieprofessor entwickelt und soll Beziehungen zu Familienmitgliedern, Freunden und anderen Bekannten stärken.
+                  \item \zitattext{Trending - All in one app} \cite{App:trending} bietet einen Überblick der aktuellen Themen im Internet. Mit Hilfe von Google Trends \cite{misc:googletrends} werden die am stärksten steigenden Suchanfragen mit Bildern und Artikeln bereitgestellt. Des Weiteren werden die neuesten \glqq{}top posts\grqq{} von Reddit, aktuelle Tweets und Hashtags, virale Youtube Videos und die meistgelesenen Wikipedia-Artikel angezeigt. Das durch die App bereitgestellte Informationsangebot bietet eine Grundlage für Gesprächsthemen und Gesprächseinstiege.
+                  \item Eine weitere App, zur Bereitstellung von Informationen, mit welchen man Small Talk betreiben kann ist \zitattext{small talk} \cite{App:smalltalk}. Die App präsentiert täglich sechs Themengebiete: Sprüche zum Nachdenken, lustige Fakten, Witze, Wort des Tages, historische Ereignisse des aktuellen Tages und ein Tipp. Des weiteren stehen auch die Beiträge von vorherigen Tagen zur Verfügung. Mit der Verwendung dieser App können Themen und \zitattext{fun facts} zur Verwendung im Small Talk angehäuft werden.
+            \end{itemize}
+\end{itemize}
+
+Des weiteren stellen Apps wie \zitattext{Nwsty} \cite{App:nwsty} aktuelle Schlagzeilen bereit und \zitattext{Clio} \cite{App:clio} zeigt historische Stätten in der Umgebung und wie man den Weg zu diesen findet. Diese Apps bieten aber weniger Hilfestellungen für den Small Talk als die oben vorgesellten Anwendungen.
+
+Es besteht auch der spezielle Fall des Datings, für welchen mehrere Lösungsmöglichkeiten, wie Tinder, Lovoo, Parship, Badoo und ähnliche Anwendungen, vorhanden sind. Dieser Aspekt wird geziehlt nicht behandelt, da die Partnersuche nicht Teil der Ziele der zu entwickelnden Software ist.
+
+\section{Datenbankmodelle}
+\label{sec:datenbankmodelle}
+
+Da das Erstellen und Speichern von benutzerdefinierten Profilen und Fragen eine Anforderung an diese Arbeit ist, bietet es sich an ein System zur Speicherung und Verwaltung der Daten zu verwenden. Dies kann durch das Schreiben der Daten in eine Textdatei, das Erstellen und Serialisieren von Objekten, Speicherung der Daten in einem Array oder durch die Verwendung eines \gls{dbms} umgesetzt werden.
+
+\begin{itemize}
+      \item Daten können hartkodiert in Arrays oder Listen gespeichert werden. Das bedeutet, dass die Daten im Quelltext als Konstanten vorhanden sind.
+      \item Beim Schreiben in Textdateien werden die Daten in Strings umgewandelt und beispielsweise durch Kommata, Tabulatorzeichen und Absätze getrennt. Das Trennen der Daten ermöglicht, dass diese auch wieder ausgelesen und zugeordnet werden können.
+      \item Serialisierung wandelt Objekte in Bytefolgen um, welche in eine Datei geschrieben werden. Um das ursprüngliche Objekt zu erhalten werden die Bytes solange deserialisiert, bis daraus ein Objekt entsteht.
+\end{itemize}
+
+Datenbanksysteme dienen der elektronischen Datenverwaltung. Sie bestehen aus den zu verwaltenden Daten und der Verwaltungssoftware, dem \gls{dbms}. Das \gls{dbms} ist zuständig für Lese- und Schreibzugriffe auf die Datenbank und verwaltet die interne Datenspeicherung.
+
+Für die interne Strukturierung der Daten gibt es verschiedene Datenbankmodelle. Eine erste Unterteilung der Datenbankmodelle erfolgt bei der Aufteilung in \gls{sql} und \gls{nosql}. Die Bezeichnung \gls{sql} trifft dabei nur auf ein Datenbankmodell zu, während \gls{nosql} alle weiteren Modelle einschließt. Einige der relevanteren Datenbankmodelle \cite{Db-engines:ranking} werden hier aufgelistet:
+\begin{itemize}
+      \item \textbf{Relationale Datenbank} \newline
+            Eine relationale Datenbank speichert Daten zeilenweise in Tabellen. Relevant für einzelne Zeilen ist dabei, dass jede Spalte nur ein Element enthält (Atomarität). Elemente können auch auf weitere Tabellen verweisen. Grundprinzipien einer relationalen Datenbank sind die Konsistenz und die Redundanzfreiheit der Daten. Um dies zu erfüllen müssen Daten eindutig identifizierbar und nur einmal in der Datenbank enthalten sein. Das Abfragen der Daten erfolgt über die \gls{abfrsprache} \gls{sql}.\newline
+            Relationale Datenbanken sind das am weitesten verbreitete Datenbankmodell. Sie besitzen eine hohe Verarbeitungsgeschwindigkeit und können fast beliebige Dateiarten speichern. Relationale Datenbanken eignen sich besonders für die Speicherung fester Strukturen und die Verknüpfung von Daten.
+      \item \textbf{Objektorientierte Datenbank} \newline
+            Bei objektorientierten Datenbanken werden Daten und deren Funktionen in Objekten gespeichert. Diese Objekte übernehmen dann die interne Datenverwaltung. Das Auslesen der Daten erfolgt über die objektinternen Funktionen oder die Objekt-\gls{abfrsprache}. Das Abfragen der Daten erfolgt ähnlich wie bei relationalen Datenbanken, weshalb der Name der \gls{abfrsprache} auch ähnlich ist: \gls{oql}. Durch den vermehrten Einsatz objektorientierter Programmiersprachen (Java, C\#, .NET) steigt die Relevanz objektorientierter Datenbanken.
+      \item  \textbf{Graphdatenbank} \newline
+            Graphdatenbanken benutzen, wie der Name sagt, Graphen um vernetzte Daten darzustellen. Die Daten werden in Knoten gespeichert. Knoten werden durch Kanten in Beziehung zueinander gesetzt, wobei eine Kante genau zwei Knoten miteinander verbindet. Ein Knoten kann beliebig viele Kanten besitzen. Knoten sind durch einen Bezeichner eindeutig identifizierbar und können eine beliebige Menge an Eigenschaften enthalten. Kanten lassen sich zudem gewichten, um beispielsweise die Relevanz der Beziehung, der verbundenen Knoten, darzustellen. Graphdatenbanken werden aufgrund ihrer Struktur oft für soziale Netzwerke (Facebook, Instagram, \dots), wo mehrere Personenprofile über verschiedene Beziehungen miteinander verbunden sind, eingesetzt.
+      \item \textbf{Dokumentenorientierte Datenbank} \newline
+            Eine dokumentenorientierte Datenbank besitzt Dokumente als Grundlage zur Speicherung der Daten. Ein einzelnes Dokument ist dabei vergleichbar mit einer Zeile in einer relationalen Datenbank. Dokumente besitzen einen eindeutigen Identifikator und benötigen kein intern vorgebenes Schema, nach welchem die Daten strukturiert sein müssen. Somit bestimmen die gespeicherten Daten das Schema zur Datenspeicherung. Es können auch verschiedene Dokumenttypen abgespeichert werden, was dokumentenorientierte Datenbanken zu einer häufigen Wahl beim Speichern von unstrukturierten und wechselhaften Daten und Dateien macht.
+\end{itemize}
+
+Es existieren noch weitere Datenbankmodelle (Netzwerkdatenbankmodell, hierarchisches Datenbankmodell, Key-value, \dots). Diese werden im Rahmen dieser Arbeit aber nicht weiter ausgeführt.
+
+
+\section{Einordnung in den Stand der Technik}
+\label{sec:einordnung_sdt}
+
+Aus dem Stand der Technik geht hervor, dass die in \ref{list:apps} vorgestellten Softwarelösungen, die in \ref{sec:problemstellung} beschriebenen Probleme nur in Teilen lösen. Die Apps bieten dabei hauptsächlich Informationen zu aktuellen Themen und generelle Informationen, welche in ein Gespräch eingebaut werden können. Nur die App \zitattext{Beyond Small talk} \cite{App:beyond} stellt einem Nutzer Fragen zu Verfügung. Jedoch zielen diese Fragen auf eine Vertiefung des Gesprächs und bieten keine Hilfestellung um eine Konversation zu beginnen.\newline
+Menschliche Hilfestellungen sind kostenintensiv (Coaches und Seminare) und können zudem eine Abhängigkeit von der Begleitperson aufbauen. Wenn die Begleitperson eine Führungsrolle übernimmt, kann dies dazu führen, dass die Hilfe benötigende Person nicht zum Nachdenken angeregt wird und nur das Verhalten der Begleitperson kopiert, was den Lerneffekt schmälert und die Eigenständigkeit nicht fördert. \newline
+Hilfsmittel wie Bücher und Internetportale bieten eine gute theoretische Grundlage, lassen aber praktische Aspekte außer Acht.
+
+Mit dieser Arbeit soll eine Softwarelösung entwickelt werden, welche sowohl theoretische als auch praktische Hilfestellungen bietet und die Funktionen der bereits existierenden Lösungen in einem Tool zusammenfasst. Die zu entwickelnde Hilfestellung soll zudem Gesprächseinstiege und individuelle Fragen und Profile bereitstellen.

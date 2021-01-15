@@ -1,0 +1,59 @@
+% Hinweis: Um das finale Dokument zu erstellen, als weitere Option "final" angeben
+% Dies versteckt u.a. TODO-Elemente
+\documentclass[12pt,final]{report}
+%für finale Version
+%documentclass[12pt,final]{report}
+\usepackage{style}
+\usepackage{dhbwTitlepage} % Eigene Titelseite verwenden
+
+
+% "Metadaten"
+\title{\Large{Entwicklung eines softwaregestützten kontextabhängigen Kommunikationsassistenten}}
+\project{T2000}
+\author{Christoph Böhringer}
+\supervisor{Dipl.-Inform. (FH) Thomas Weller}
+\studentNumber{3275565}
+\class{TINF18-IN}
+\company{Mitutoyo CTL Germany GmbH}
+\date{10.09.2020}
+
+% Initialisierungen für Abkürzungsverzeichnis
+\makenoidxglossaries
+\loadglsentries{Acronyms.tex}
+
+\addbibresource{literature.bib}
+
+\begin{document}
+
+\pagenumbering{Roman}
+
+\maketitle
+\include{tex/Erklaerung}
+\include{tex/Abstract/Abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+\printnoidxglossary[type=\acronymtype, title={Abkürzungen}, nogroupskip]
+\printnoidxglossary[type=main]
+%%%%%%%%%%%%% Inhalt %%%%%%%%%%%%%
+
+\clearpage
+\pagenumbering{arabic}
+
+\include{tex/Einleitung/Einleitung}
+\include{tex/SmallTalk/Smalltalk}
+\include{tex/Stand-der-Technik/stand-technik}
+\include{tex/Requirements/Requirements}
+\include{tex/Loesungsfindung/loesungsfindung}
+\include{tex/Loesungsfindung/loesungsbewertung}
+\include{tex/Umsetzung/umsetzung}
+\include{tex/Praxistests/Praxistests}
+\include{tex/Zusammenfassung_Ausblick/Zusammenfassung}
+\include{tex/Zusammenfassung_Ausblick/Ausblick}
+\include{tex/Anhang/Anhang}
+
+
+\printbibliography          % Literaturverzeichnis
+\listoftodos                % Todoverzeichnis
+
+\end{document}

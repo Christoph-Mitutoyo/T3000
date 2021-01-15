@@ -1,0 +1,185 @@
+\chapter{L"osungsfindung}
+\label{ch:loesungsfindung}
+
+\section{Umgebung}
+\label{sec:umgebung}
+
+Da Strike Up portabel und während einem Gespräch verwendbar sein soll (vgl. \ref{tab:nichtfunktional} NF-1, NF-2), schränkt dies die Verfügbarkeit der möglichen Plattformen ein. \newline
+Eine Softwarelösung für einen Computer/Laptop ist in diesem Fall nicht sinnvoll, da eine unauffällige Verwendung eines Laptops (oder eines Computers) während einem Gespräch nur möglich ist, wenn die betroffene Person bereits an einem Laptop sitzt. Dies ist in öffentlichen Plätzen wie Bus, Bahn, Park, Geschäftsessen oder einer Messe meist nicht der Fall.
+
+Als portable Umgebung bieten sich daher Smartphones und Smartwatches an. \newline
+In Deutschland besitzen 81\% der Bevökerung ab 14 Jahren ein Smartphone, in jungen Altersgruppen steigt der Prozentsatz auf über 95\% \cite{misc:marktforschung_smartphone}. Smartphones können innerhalb weniger Sekunden aus der Tasche geholt und gestartet werden, dies ermöglicht einen schnellen Gesprächseinstieg mit Strike Up. \newline
+Für Smartphones bestehen zwei dominante Betriebssysteme: Android und i\acrshort{os}. Mit einem Marktanteil von 78,2\% ist Android in Deutschland Marktführer für Smartphonebetriebssysteme, gefolgt von i\acrshort{os} mit 21,3\%. Andere Betriebssysteme, wie Windows und Blackberry, besitzen einen Marktanteil von unter 0,5\%. \cite{misc:kantarworldpanel}. \newline
+Für Android entwickelte Apps basieren auf Java oder Kotlin, während i\acrshort{os}-Apps in Swift oder Objective-C entwickelt werden. Des weiteren gibt es Tools und \glspl{sdk} mit welchen Apps entwickelt werden können, welche mit wenigen Einschränkungen auf beiden Betriebssystemen lauffähig sind:
+\begin{itemize}
+    \item \textbf{React Native}: React Native ist ein JavaScript Framework, welches die \gls{ui} in native (Android oder iOS spezifische) Elemente umwandelt. Die Logik bleibt dabei unverändert. Das Framework wird von Facebook, Instagram und Uber benutzt.
+    \item \textbf{Xamarin}: Xamarin ermöglicht es Entwicklern eine gemeinsame Logik für Android und iOS zu schreiben. Die jeweilige UI wird allerdings in einer nativen Programmiersprache entwickelt.
+    \item \textbf{Flutter}: Flutter ist ein \gls{sdk}, welches von Goolge erstellt, und im Jahr 2018 erstmals in der Version 1.0 veröffentlicht wurde. Das \gls{sdk} verwendet die, ebenso von Google entwickelte, Programmiersprache Dart. Flutter ermöglicht es UI-Komponenten zu entwickeln, welche auf beiden Betriebssystemen konsistent sind.
+\end{itemize}
+
+In Deutschland besaßen 2019 circa ein Drittel der Bevölkerung (36\%) \cite{misc:statista_smartwatches} eine Smartwatch.
+Das Gerät ermöglicht Nutzern/Nutzerinnen das Lesen und Verfassen von Nachrichten (auch über Spracheingabe), die Überwachung von sportlichen Aktivitäten
+(Pulsmessung, zurückgelegte Distanz, Schrittmesser, \dots) und über eine App auch das Abrufen von Karten und Planen von Routen.
+Für eine optimale Nutzung sollte die Smartwatch dabei mit dem Smartphone gekoppelt sein. Auf dem Smartpone ist eine App installiert, welche die App auf der Smartwatch unterstützt.
+Damit eine Kopplung möglich ist, müssen die Betriebssysteme der beiden Geräte kompatibel sein. \newline
+Wie bei Smartphones ist auch der Smartwatchmarkt unter mehreren Marken wie Apple, Samsung, Huawei, Garmin \cite{misc:garmin} und fitbit \cite{misc:fitbit} aufgeteilt.
+Jede Marke benutzt dabei ihr eigenes Betriebssystem.
+Zum Beispiel sind Watch \gls{os} und Android Wear reduzierte Versionen der orginalen Betriebssysteme (iOS und Android). \newline
+Den Großteil des Marktanteils, im ersten Quartal 2020, besitzt Apple mit 36,3\%. Darauf folgen Huawei (14,9\%), Samsung (12,4\%), Garmin (7,3\%) und fitbit (6,2\%) \cite{misc:canalys_smartwatch_marketshare}.
+
+
+\section{Fragenfindung und -bewertung}
+\label{sec:fragenfindungbewertung}
+
+\subsection{Fragenfindung}
+\label{subsec:fragenfindung}
+
+Strike Up soll auf den/die Nutzer/-in spezifizierte Fragen bereitstellen, dies kann durch individuelle Personenprofile erziehlt werden (vgl. \ref{tab:funktional} F-12, F-6).
+Die Profile enthalten dabei Daten wie Name, Geschlecht, und Alter. Daraus lassen sich bereits einige Gesprächsthemen generieren. So würde eine Person unter 25 Jahren eher über Videospiele
+und Influencer oder bekannte Youtuber reden, als ein Person in einem Alter von über 75 Jahren. \newline
+Für ein personalisiertes Gespräch sollten aber noch weitere Faktoren miteinbezogen werden, da die oben genannten Merkmale nur eine oberflächliche Beschreibung der Person ermöglichen.
+
+Des Weiteren spielen Umgebungsvariablen eine Rolle bei der Fragenauswahl (vgl. \ref{tab:funktional} F-13). Besipiele für Umgebungsvariablen sind Ort, Jahreszeit und die Beziehung zum
+Gegnüber. Beispielsweise beinhaltet eine Konversation auf einer geschäftlichen Messe andere Themen, als eine Konversation am Strand im Sommer. \newline
+Umgebungsvariablen haben einen direkten Einfluss auf die Auswahl der Fragen/Hinweise und werden entweder von Strike Up generiert (Umgebungsvariablen welche mit Uhrzeit, Datum oder Einstellungen
+in den Nutzerprofilen zusammenhängen) oder vom/von dem/der Nutzer/-in vor einem Gespräch ausgewählt (geschäftlich oder privat, kennt der/die Nutzer/-in das Gegenüber, \dots).
+
+\subsection{Fragenbewertung}
+\label{subsec:fragenbewertung}
+
+Um Fragen und Hinweise während und bereits vor dem Gespräch an das Gegenüber anzupassen, könnten Fragen und Hinweise durch den/die Benutzer/-in im Voraus und im Gesprächsverlauf
+bewertet werden.
+
+Die Bewertung wird mittels einer Punktzahl von null bis 100 realisiert, wobei 100 die optimale Punktzahl darstellt. Der/die Nutzer/-in bewertet dabei auch Fragen/Hinweise für das
+Gegenüber, soweit dies möglich ist und die Bewertung nicht durch das Gegenüber selbst stattfindet. In einem Gespräch wird bei Fragen/Hinweisen die Punktzahl des/der Nutzers/-in mit
+der Punkzahl des Gegenübers addiert, wodurch eine maximale Punktzahl von 200 erreicht werden kann. Des Weiteren können Umgebungsvariablen, abhähngig von ihrer Stimmigkeit,
+Punkte zu Fragen/Hinweisen addieren oder subtrahieren. \newline
+Fragen und Hinweise werden anschließend nach ihrer Punktzahl geordnet und für die Konversation bereit gestellt. Fragen/Hinweise mit einer Gesamtbewertung von unter 100 Punkten werden nicht
+angezeigt. Sollten jedoch weniger als zehn Fragen/Hinweise in einem Gespräch verfügbar sein, so werden auch Punktzahlen kleiner 100 eingebunden und der/die Nutzer/-in wird über einen
+Warnhinweis informiert, dass möglicherweise Fragen angeboten werden, welche ihm/ihr oder dem Gegenüber nicht gefallen.
+
+Eine weitere Möglichkeit zur Fragenbewertung ist das einführen von \glqq{}Tags\grqq{}. Ein Tag dient dabei als Schlagwort um Fragen/Hinweise zu kategorisieren. So hätte die Frage
+\glqq{}Was ist ihr Lieblingstier?\grqq{} die Tags \glqq{}Tier\grqq{} und \glqq{}kennenlernen\grqq{}. Der/die Nutzer/-in kann in seinen/ihren Profileinstellungen aus einer Liste aller verfügbaren
+Tags auswählen, ob er/sie das Tag positiv (soll im Gespräch vorkommen), neutral (egal) oder negativ (soll in einem Gespräch vermieden werden) bewertet. Nach demselben Prinzip werden
+die Tags der Gesprächspartnerprofile bearbeitet. Standardmäßig werden alle Tags als neutral bewertet. Da es vorkommen kann, dass wenig Informationen über das Gegenüber bekannt sind,
+kann dessen Profil und die damit verbundenen Tags auch während einer Konversation bearbeitet werden. \newline
+Fragen und Hinweise besitzen auch Tags, welche für diese als passend oder unpassend bewertet werden.  Kommt ein Tag nicht in der Liste der passenden oder unpassenden Tags vor, so
+wird es als neutral bewertet. Umgebungsvariablen verfügen in gleicher Weise über passende und unpassende Tags. \newline
+Fragen/Hinweise werden, nach Ermittlung der Umgebungsvariablen, durch ihre eigenen Tags, die Tags der Umgebungsvariablen, die Tags des/der Nutzers/-in und die Tags des Gegenüber
+bewertet. Hierzu wird die Liste aller unpassenden Tags einer/eines Frage/Hinweises mit den Listen unpassender Tags von Nutzer/-in, Umgebungsvariablen und Gegenüber verglichen. Immer,
+wenn ein Tag aus der Liste der/des Frage/Hinweises mit einem Tag aus einer anderen Liste übereinstimmt, wird auf die/den aktuelle Frage/Hinweis ein Minuspunkt addiert. Dasselbe
+geschieht mit den Listen der passenden Tags, hierbei wird bei einem übereinstimmenden Tag jedoch ein Pluspunkt addiert. Anschließend werden die Fragen/Hinweise in absteigender Reihenfolge nach der
+erreichten Punktzahl sortiert. Fragen/Hinweise mit Null oder weniger Punkten werden aus dem Pool für das Gespräch entfernt. Sind weinger als zehn Fragen/Hinweise im Pool vorhanden, so
+wird dieser zuerst mit \glqq{}neutralen\grqq{} (Bewertung entspricht Null) und anschließend mit \glqq{}negativen\grqq{} (Bewertung kleiner Null) Fragen aufgefüllt und der/die Nutzer/-in
+erhält einen Warnhinweis, welcher auf möglicherweise als unpassend empfundene Fragen/Hinweise hinweist.
+
+
+\section{Allgemeine Hilfestellungen}
+\label{sec:allgemeine_hilfestellungen}
+
+Aus F-1 und F-8 (\ref{tab:funktional}) geht hervor, dass Strike Up auch allgemeine Hinweise und Gesprächsthemen bereitstellen soll. Der /die Nutzer/-in kann sich mit Strike Up
+über aktuelle Themen informieren und somit dieses Wissen in Gespräche einbringen. \newline
+Allgemeine Hinweise können Tips für Haltung, Gestik, Mimik und Gesprächstechniken geben. Dadurch kann das Selbstbewusstsein und die Eloquenz des/der Nutzers/-in verbessert
+werden.
+
+Aktuelle Themen können mit Hilfe eines \gls{rssreader}s abgerufen werden. Dieser ist für den/die Nutzer/-in über einen Button auf der Startseite von Strike Up erreichbar. In den
+Einstellungen des \gls{rssreader}s kann angegeben werden, von welchen Quellen die Themen bezogen werden sollen. Damit ist auch F-9 erfüllt. Die Auswahlmöglichkeiten sind hierbei vordefiniert,
+da von dem/der durchschnittlichen Nutzer/-in nicht erwartet wird über \gls{rssfeed}s informiert zu sein. \newline
+Die Themen werden mit Titel und einer Zusammenfassung angezeigt. Über einen Button wird der \gls{rssreader} aufgefordert den \gls{rssfeed} erneut abzurufen und die Daten zu aktualisieren.
+Wird auf den Titel oder Zusammenfassung einer/-s Meldung/Themas gedrückt, so wird der/die Nutzer/-in zum vollständigen Artikel weitergeleitet.
+
+Auf allgemeine Hinweise zur Gesprächsführung wurde bereits in \ref{ch:smalltalk} eingegangen. Das Realisieren dieser Hinweise innerhalb von Strike Up kann über tägliche Tipps umgesetzt werden.
+Beim ersten täglichen Öffnen der Anwendung wird dem/der Nutzer/-in ein \gls{popup} angezeigt, welches einen allgemeinen Hinweis zur Gesprächsführung enthält. Innerhalb dieses \glspl{popup}
+können frühere und zukünftige Hinweise aufgerufen werden.
+
+\section{Datenspeicherung}
+\label{sec:datenspeicherung}
+
+Die von Strike Up bereitgestellten und verwalteten Daten benötigen einen Speicherort, welcher für Nutzer/-innen zugänglich ist und von Zugriffen durch Unbekannte geschützt ist.
+Das Speichern der Daten kann in einer \gls{cloud} oder in dem geräteinternen Speicher des Smartphones durchgeführt werden. \newline
+Wichtige Kriterien für eine Auswahl sind hierbei:
+\begin{itemize}
+    \item Speichervolumen
+    \item Strukturierung der Daten
+    \item Lese- und Schreibgeschwindigkeit
+    \item Sicherheit vor Fremdzugriffen
+    \item Verwaltung und Sicherung der Daten
+\end{itemize}
+
+Zur Datenspeicherung im geräteinternen Speicher gibt es Android SharedPreferences \cite{misc:sharedpreferences}. Daten werden hierbei als Key-Value-Paare in \acrshort{xml}-Dateien gespeichert.
+Innerhalb der SharedPreferences einer App können Dateien erstellt, gelöscht und bearbeitet werden. Das Erstellen von neuen Ordnern und die damit verbundene Strukturierung der Daten ist jedoch nicht möglich. \newline
+Mit zusätzlichen Bibliotheken wie Gson \cite{misc:gson} können Java Objekte in \gls{json} Objekte umgewandelt werden und somit als Key-Value-Paar in den Shared Preferences gespeichert
+werden. \newline
+SharedPreferences eignen sich jedoch nur für Datensätze unter 100KB, da die Daten im \gls{ram} gespeichert werden. Der \gls{ram} kann durch eine zu große Datenmenge überlastet werden,
+wodurch die App nicht mehr wie gewollt funktioniert. Für eine größere Speicherkapazität kann der app-spezifische Speicher \cite{misc:appspecificstorage} verwendet werden. Der Unterschied
+zu den SharedPreferences bestaht darin, dass Dateien  nicht im \gls{ram}, sondern im geräteinternen Speicher gespeichert werden. Zum Lesen, Schreiben und Bearbeiten der Dateien wird
+deshalb ein \gls{iostream} benutzt. Eine Strukturierung der Daten durch Verzeichnisse ist auch hier nicht möglich, es wird aber die Verwendung von Datenbanken wie SQLite \cite{misc:sqlite}
+ermöglicht. SQLite ist eine \gls{sql}-Datenbank und ermöglicht somit das Strukturieren der Daten in Tabellen, sowie das Verwenden aller \gls{sql}-typischen Abfragebefehle. \newline
+Werden die Fragen von Strike Up im geräteinternen Speicher gespeichert, so müssen die Daten im Source Code enthalten sein und sind anschließend nur durch Updates veränderbar. Änderungen der
+Daten durch den/die Nutzer/-in finden nur lokal statt und ein Austausch unter Nutzern/-innen (z.B. zur Bewertung von Fragen/Hinweisen) ist nicht möglich. \newline
+Im geräteinternen Speicher gespeicherte Daten, können durch Nutzer/-innen eingesehen werden, da die Daten im Source Code enthalten sind, welcher aus der \gls{apk} extrahiert werden kann.
+Für andere installierte Apps sind die Daten jedoch nicht sichtbar. \newline
+Bei einer Deinstallation der App werden alle durch den/die Nutzer/-in erzeugten Daten gelöscht. Dies bedeuted, dass ein/eine Nutzer/-in von Strike Up, nach einer Deinstallation und Neuinstallation
+der App, ein neues Konto erstellen muss. Zudem werden alle durch den/die Nutzer/-in erstellten Gesprächspartner/-innen gelöscht.
+
+Datenspeicherung in einer \gls{cloud} ermöglicht die Aktualisierung der durch Strike Up bereitgestellten Fragen/Hinweisen, ohne dass die Anwendung selbst aktualisiert wird. Fragen/Hinweise,
+Nutzerprofile und Profile von Gesprächspartnern/-innen werden in der \gls{cloud} gespeichert und zur Laufzeit abgerufen. \newline
+Der für die \gls{cloud} benötigte Server kann durch einen privaten Server realisiert werden. Die Realisierung durch das Aufsetzen eines privaten physikalischen Servers kann jedoch aus
+mehreren Gründen ausgeschlossen werden:
+\begin{itemize}
+    \item Die \gls{ip}-Adresse kann sich verändern
+    \item Eine Authentifizierung muss erstellt werden, damit Nutzer/-innen von Strike Up auf die Daten zugreifen können
+    \item Die Authentifizierung muss Zugriffe durch Fremde verhindern, um die Sicherheit persönlicher Daten zu wahren
+    \item Die Hardware muss bereitgestellt und gewartet werden
+    \item Strom- und Internetausfälle schalten den gesamten Server aus
+\end{itemize}
+Aus diesen Gründen bietet sich das Nutzen von Cloudservern anderer Anbieter wie Google, Amazon und Microsoft an. Diese (und andere) Unternehmen bieten auch fertige Cloud-Datenbanken an.
+
+Google bietet mit Firebase \cite{misc:firebase} eine Plattform mit verschiedenen Tools, wie einer Echtzeitdatenbank, Authentifizierung, Cloud-Speicher, Crash Reports und Weiteren an.
+Für Strike Up sind hierbei besonders die Echtzeitdatenbank und die Authentifizierung relevant. Die Echtzeitdatenbank speichert Daten in Form von \gls{json}-Objekten und ist somit
+eine \gls{nosql}-Datenbank. Gespeicherte Daten können in der Datenbank durch Verschachtelung strukturiert werden. Die Authentifizierung ermöglicht das Anlegen von Nutzern, welche auf die
+Datenbank zugreifen können. Durch Regeln kann festgelegt werden, ob Nutzer/-innen, oder Fremde, in bestimmten Bereichen der Datenbank Lese- und/oder Schreibrechte haben. Somit kann festgelegt werden,
+dass nur authentifizierte Nutzer/-innen auf die gespeicherten Daten zugreifen können. Des Weiteren können die Zugriffsrechte der Nutzer/-innen auf ihre eigenen Daten beschränkt werden. \newline
+Firebase besitzt ein Free-Tier, bei welchem ein Gesamtspeicher von 1GB und eine monatliche Download-Größe von 10GB zur Verfügung gestellt wird. Bei einer höheren Nutzung können die Werte
+kostenpflichtig vergrößert werden.
+
+Amazon DynamoDB \cite{misc:dynamodb} ist eine von Amazon gehostete \gls{nosql}-Datenbank, welche Daten als Key-Value-Paare in Dokumenten speichert. Wie bei Firebase ist auch hier ein
+Nutzermanagement möglich. Dies geschieht über das Definieren von Zugriffsrechten für Nutzer/-innen und das Aufteilen von Nutzergruppen in Rollen (Nutzer/-in, Moderator, \dots). \newline
+Im Free-Tier sind 25GB Speicher und 25 Write Capacity Units (nach Angaben von Amazon entspricht dies der Verarbeitung von ca. 200 Millionen Anfragen pro Monat) enthalten\cite{misc:amazonfreetier}.
+
+Microsoft stellt mit Azure Cosmos DB \cite{misc:cosmosdb} eine auf App-Entwicklung spezialisierte \gls{nosql}-Datenbank bereit. Cosmos DB unterstützt fünf verschiedene Datenbankmodelle:
+MonongoDB-\acrshort{api} (dokumentorientiert), Apache-Cassandra-\acrshort{api} (Key-Value), Gremlin-\acrshort{api} (Graphdatenbank) und Microsofts Document \gls{sql} und Table \acrshort{api}.
+Die Datenbankstrukturen und \glspl{api} werden dabei auf die interne Struktur der Cosmos DB abgebildet \cite{misc:heise_cosmosdb}. Zugriffsrechte auf gespeicherte Daten können bis auf
+die Ebene eines Key-Value-Paares individuell eingestellt werden. Nutzer/-innen erhalten dabei Ressource-Tokens, welche Zugriff auf bestimmte Teile der Datenbank gestatten. \newline
+Der Free-Tarif für ein Azure Cosmos DB-Konto enthält 5GB Speicher, sowie 400RU/s (Anforderungseinheiten pro Sekunde).
+
+%\section{Datenbanken}
+%\label{sec:datenbanken}
+%Das war vorher bei SdT, hat aber Wertungen und sollte deshalb eher hierher\newline
+%gehört aber eigentlich eher in die lösungsbewertung 4head
+
+%Die Schwächen relationaler Datenbanken liegen im Umgang mit großen Datenmengen, da dadurch Lese- und Schreibvorgänge deutlich %verlangsamt werden. Das Speichern von Bildern oder Dokumenten ist zudem nur schwer möglich.
+
+%Da bei relationalen Datenbanken eine Trennung der Daten und Funktionen erfolgen muss, sind Objektdatenbanken für diesen %Anwendungszweck effizienter. Eine weitere Stärke ist eine gesteigerte Performance bei Abfragen. Die \gls{abfrsprache} und %objekteigene Funktionen umgehen aufwändigere relationale Abfragen. \newline
+%Nachteile einer objektorientierten Datenbank zeigen sich in einer Performanceverschlechterung bei größeren Datenmengen.
+
+%Die Stärken einer Graphdatenbank liegen in der Vernetzung von Daten und einer flexiblen Struktur. Komplizierte Datenabfragen lassen %sich durch diese Struktur vereinfachen und beschleunigen. Zudem ist das Speichern der Daten dem menschlichen Denken ähnlich und ist %somit leicht nachvollziehbar. Durch die Struktur lassen sich Daten zudem leicht auswerten und analysieren. \newline
+%Probleme zeigen sich bei der Skalierbarkeit einer Graphdatenbank, da Graphdatenbanken auf eine Ein-Server-Architektur ausgelegt %sind. Des Weiteren gibt es keine
+%einheitliche Abfragesprache.
+
+%Dokumentenorientierte Datenbanken ermöglichen eine hohe Flexibilität im Umgang mit verschiedenen Datenstrukturen. Die flexible %Struktur ermöglicht auch beliebiges Hinzufügen und Entfernen von Daten.\newline
+%Schwächen zeigen dokumentenorientierte Datenbanken beim Erstellen von Beziehungen zwischen Dokumenten. Zudem kann es durch die %unheitliche Struktur zu Problemen und Redundanzen kommen. Auch die Abfrage von Daten kann durch die flexible Struktur erschwert %werden.
+
+%\begin{itemize}
+%    \item Graphendatenbank
+%    \item Relationale Datenbank
+%    \item Dokumentdatenbank
+%    \item Selbst programmierte Datenbank mit SharedReferences
+%\end{itemize}
+
+%Weil Graphendatenbank vermutlich nicht klappt müssen passende Fragen irgendwie anders zugeordnet werden: \newline
+%-> Klappt nicht, weil Nodes in den bisher gesichteten Sprachen nicht dynamisch generiert werden können \newline
+%-> Fragen und Profile haben zugeordnete Tags, durch welche passende Fragen ausgewählt werden \newline
+%-> Evtl. noch andere Lösungsmöglichkeiten?
+
+%Firebase kann auch temporäre Nutzer machen, die Daten werden für spätere "logins" gespeichert und können in die DB übernommen %werden, wenn der user einen Account erstellt

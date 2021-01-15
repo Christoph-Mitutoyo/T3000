@@ -1,0 +1,60 @@
+\chapter{L"osungsbewertung}
+\label{ch:loesungsbewertung}
+
+\section{Umgebung}
+\label{sec:bewertung_umgebung}
+
+Smartwatches sind internetfähig und können ohne die Unterstützung eines Smartphones auskommen. Da Smartwatches wie eine Armbanduhr am Handgelenk des/der Nutzers/-in sind, kann Strike Up schnell und unauffällig verwendet werden. Besonders während einem Gespräch ist ein kurzer Blick auf die Uhr weniger auffällig als ein Blick auf das Smartphone. \newline
+Die Schwächen einer Smartwatch liegen allerdings in der geringen Display-Größe. Das Erstellen und Bearbeiten von Gesprächspartnern/-innen wird dadurch erschwert. Zudem schränkt die Displaygröße die Übersichtlichkeit der App ein. Das Verwenden einer Smartwatch zusätzlich zu einer App auf dem Smartphone wäre eine gute Lösung; jedoch müssen so zwei Apps entwickelt werden. \newline
+Aus diesem Grund wird in dieser Arbeit Strike Up in Form einer App für Smartphones umgesetzt. Die Unterstützung durch eine Smartwatch ist eine mögliche Verbesserung für die Zukunft.
+
+Damit Apps im App Store von Apple veröffentlicht werden dürfen, benötigt der/die Entwickler/-in eine Mitgliedschaft im Apple Developer Program. Diese kostet pro Jahr 99 US-Dollar \cite{misc:appledeveloper}.
+Des Weiteren kann eine für i\gls{os} entwickelte Anwendung nur in einer Apple-Umgebung (Macbook, \dots) kompiliert werden. \newline
+Aus diesen Gründen, und wegen dem Marktanteil von 21,3\% in Deutschland, ist das Entwickeln von Strike Up für eine reine i\gls{os}-Umgebung nicht sinnvoll. \newline
+
+Um Apps im Google Play Store zu veröffentlichen, wird eine einmalige Registrierungsgebühr von 25 US-Dollar benötigt \cite{misc:androiddeveloper}. Eine jährliche Gebühr ist nicht vorhanden.
+
+React Native ermöglicht zwar das Entwickeln einer Anwendung für iOS und Android, jedoch werden nicht alle plattformspezifischen \glspl{api} unterstützt. Nicht unterstützte \glspl{api} müssen in der nativen Programmiersprache erstellt werden. Es muss somit trotzdem für iOS und Android separat entwickelt werden. \cite{misc:reactnative_vs_native}\newline
+Die nicht vollständige Unterstützung nativer \glspl{api} ist eine Schwachpunkt aller Frameworks, welche das gleichzeitige Entwickeln für iOS und Android ermöglichen. \newline
+Xamarin bietet durch die Unterstützung von .Net und Microsoft Visual Studio die beste Entwicklungsumgebung. Jedoch mindert die geringe Popularität die Verfügbaren Hilfestellungen durch andere Entwickler/-innen \cite{misc:flutter_reactnative_xamarin}. \newline
+Laut einer Umfrage von Stack Overflow ist Flutter das beliebteste der drei vorgestellten Frameworks \cite{misc:so_popularity}. Es ist jedoch auch das jüngste (Version 1.0 im Jahr 2018) und kann somit auf den geringsten Anteil an verfügbaren Hilfestellungen zurückgreifen. Auch die Unterstützung durch Bibliotheken von Dritten ist noch nicht so gut wie bei den anderen Frameworks.
+\cite{misc:flutter_reactnative_xamarin}
+
+Ein weiterer negativer Aspekt der Cross-Platform-Entwicklung sind Systemupdates von iOS oder Android. Ein Systemupdate kann neue Funktionen hinzufügen und alte Verändern oder Entfernen. Während bei nativen Plattformen darauf geachtet wird, dass alle Änderungen rückwärtskompatibel sind, müssen sich Cross-Platform-Frameworks erst an die Änderungen anpassen. Dadurch kann es zu fehlerhaftem Verhalten der App kommen. Bei der Entwicklung einer App, welche sich in Zukunft durch Verbesserungen und weitere Funktionen noch ändern kann, ist somit das Entwickeln auf einer nativen Plattform sinvoller.
+
+Strike Up ist darauf ausgelegt den/die Nutzer/-in in und vor Gesprächen zu unterstützen. Umm diese Aufgabe optimal zu erfüllen, ist die App auf Feedback der Nutzer/-innen angewiesen. Daraus resultiert, dass Strike Up nach der Veröffentlichung nicht vollständig ist und somit weiterhin aktualisiert wird. \newline
+Die Wahl des Betriebssystems fällt somit auf Android.
+
+\section{Fragenbewertung}
+\label{sec:bewertung_fragenbewertung}
+
+Bei einer punktebasierten Fragenbewertung wird von dem/der Nutzer/-in verlangt, möglichst viele Fragen im Voraus zu bewerten. Dies ist bei einer hohen Fragenanzahl nicht sinnvoll. Des Weiteren wird für ein individuelles Gespräch auch das Gegenüber in die Auswahl der Fragen miteinbezogen. Somit muss der/die Nutzer/-in präemtiv entscheiden, ob dem Gegenüber einzelne Fragen gefallen. Da Strike Up bei der Auswahl passender Fragen helfen soll (vgl. \ref{tab:funktional}: F-12, F-13), ist die Auswahl passender Fragen durch den/die Nutzer/-in nicht zielführend.
+
+Auch bei einer Fragenbewertung durch Tags wird von dem/der Nutzer/-in erwartet vor einem Gespräch auszuwählen was ihm/ihr und dem Gegenüber gefällt. Dies geschieht jedoch auf einer oberflächlicheren Basis. Es ist beispielsweise leichter zu sagen, ob das Gegenüber lieber klassische Musik oder Heavy Metal hört, als zu sagen wie gut dem Gegenüber die Frage \glqq{}Und wie war ihr Wochenende so?\grqq{} gefällt. \newline
+Falls einige Tags nicht den Erwartungen entsprochen haben, können Tags auch während dem Gesprächsverlauf angepasst werden.
+
+Die Auswahl der Fragen wird somit durch das Verwenden von Tags umgesetzt.
+
+
+\section{Datenspeicherung}
+\label{sec:bewertung_datenspeicherung}
+
+Strike Up wird in Zukunft durch neue Fragen und Hinweise erweitert. Eine laufende Integration neuer Fragen und Hinweise ist mit dem Verwenden des geräteinternen Speichers nicht möglich.
+Um dem internen Speicher neue Fragen hinzuzufügen, müsste Strike Up im Google Play Store aktualisiert werden. Aus diesem Grund wird eine Cloud-Datenbank verwendet.
+
+Firebase ermöglicht Datenverwaltung über eine zentrale Konsole, auf welche nur der/die Besitzer/-in der Datenbank Zugriff hat. Die Konsole bietet weitere Funktionen, wie Crash-Reports,
+Datennutzung und ein Dashboard mit Nutzerinformationen. \newline
+Da Daten als \gls{json}-Objekte gespeichert werden, können von Strike Up generierte Objekte direkt in der Datenbank gespeichert und daraus wieder als Objekte gelesen werden. \newline
+Firebase besitzt mit 1GB Speicher den geringsten frei verfügbaren Speicherplatz der vorgestellten Datenbanken.
+
+Da Amazon DynamoDB Daten als Key-Value-Paare speichert, werden von Strike Up generierte Objekte entweder durch Code in \gls{json}-Objekte umgewandelt und anschließend gespeichert, oder
+in Form von einzelnen Attributen als Key-Value-Paar gespeichert. Beim Schreiben und Lesen von Daten sind somit Zwischenschritte nötig. \newline
+Mit 25GB frei verfügbaren Speicherplatz bietet Amazon DynamoDB den größten Speicherplatz der vorgestellten Datenbanken.
+
+Microsoft Azure CosmosDB bietet dem/der Nutzer/-in die Wahl des Datenbankmodells. Die Wahl fällt für Strike Up auf eine objektorientierte Datenbank. \newline
+Um Daten zu lesen und zu schreiben, wird die \acrshort{url} und das Passwort der Datenbank benötigt. Da diese Informationen im Klartext von Strike Up hinterlegt werden, kann jede/-r
+Nutzer/-in auf diese zugreifen und somit freien Zugriff auf die Datenbank erhalten. \newline
+Microsoft Azure CosmosDB wird somit als mögliche Option ausgeschlossen.
+
+Die Wahl der Cloud-Datenbank fällt auf Firebase, da die Konsole eine übersichtliche Datenverwaltung und ein integriertes Nutzermanagement ermöglicht. Des Weiteren ermöglicht das vorhandene
+Datenbankmodell das Speichern von Objekten.

@@ -1,0 +1,65 @@
+\ProvidesPackage{style}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}                    % Hyperlinks (z.B. Inhaltsverzeichnis)
+
+\usepackage{hyperref}
+
+\usepackage[a4paper, lmargin={2.5cm}, rmargin={2.5cm}, tmargin={2.5cm}, bmargin={2.5cm}]
+    {geometry}
+\usepackage{microtype}                              % Verbessert Behandlung von Zeilenumbrüchen (overfull, ...)
+\usepackage{enumitem}                               % Layoutänderungen von itemize-Aufzählungen
+\usepackage{graphicx}                               % Bilder
+\usepackage{wrapfig}
+\RequirePackage[export]{adjustbox}                  % Positionierung von Bildern
+\usepackage{tabularx}                               % Tabellen
+\usepackage{multirow}                               % Tabellenzeile über mehrere Zeilen
+\usepackage{float}                                  % Exakte Platzierung von Objekten mit H-Modifier
+\usepackage{textcomp}                               % Verhindert "not defining ..."-Warnungen durch gensymb
+\usepackage{gensymb}                                % Sonderzeichen, wie °
+% \usepackage{amssymb}                              % Mathe
+% \usepackage{amsthm}                               % Mathe
+\usepackage[style=numeric, sorting=none]{biblatex}    % Zitieren
+\usepackage{csquotes}                               % Empfohlen bei Verwendung von biblatex
+\usepackage[acronym, toc, nopostdot, nonumberlist]
+    {glossaries}                                    % Abkürzungsverzeichnis
+
+\usepackage[nottoc]{tocbibind}                      % Abbildungs-, Tabellen- und Literaturverzeichnis im Inhaltsverzeichnis
+
+\usepackage[obeyFinal, textsize=10pt]{todonotes}    % Todo-Notizen
+
+\usepackage{lscape}
+\usepackage[font=small,labelfont=bf]{caption}
+
+
+% Font
+\usepackage[defaultsans,scale=0.95]{opensans}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.5}
+
+% Paragraphen
+\setlength{\parindent}{0cm} % Einrückung bei Paragraphenbeginn entfernen
+\setlength{\parskip}{.8em}  % Abstand zwischen Paragraphen
+
+% Platz für Kommentare am Rand
+\setlength{\marginparwidth}{2cm}
+
+% Pfad, der Bilder enthält
+\graphicspath{{img/}}
+
+% Stil für Abkprzungsverzeichnis (bzw. glossaries allgemein)
+\setglossarystyle{alttree}
+%%%%%%%%%%%%% Eigene Spaltendefinitionen für Tabellen %%%%%%%%%%%%%
+
+% Spalte mit definierbarer Breite und linksbündig, z.B. L{5cm}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Horizontal und vertikal zentrierter Inhalt mit definierbarer Breite, z.B. C{5cm}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Deutsche Anführungszeichen um einen Text
+\newcommand{\zitattext}[1]{\glqq{#1}\grqq{}}
+

@@ -1,0 +1,20 @@
+\chapter*{Abstract}
+\label{ch:abstract}
+\addcontentsline{toc}{chapter}{\nameref{ch:abstract}}
+In einem Softwareprodukt trat bei der Umstellung von 32 Bit auf 64 Bit ein Fehler auf,
+dessen Ursache sich vermutlich auf Undefined Behavior von C++ zurückführen lässt.
+Diese Arbeit soll den Nachweis erbringen oder widerlegen, dass Undefined Behavior die Ursache für den Fehler war.
+Optional kann eine mögliche Erklärung gesucht werden, warum der betroffene Code in der 32 Bit Version keinen Fehler verursacht hat.
+
+Das betroffene Projekt wurde vor der Umstellung mehrere Jahre lang nicht verändert. Es muss daher davon ausgegangen werden,
+dass sich ähnliche Fehler damals auch an anderen Stellen eingeschlichen haben, jedoch noch nicht  bemerkt wurden.
+Die Arbeit soll untersuchen, ob weitere Fehler vom Typ Undefined Behavior in diesem Projekt vorliegen.
+
+Um Fehler dieser Art auch in anderen Projekten auszuschließen, sollen Tools gesucht und evaluiert werden,
+mit denen die Fehler automatisiert gefunden und berichtet werden können. Falls kein passendes Tool existiert, soll aufgezeigt werden,
+mit welchem manuellen Vorgehen solche Stellen erkannt werden können.
+
+Die Tools sollen möglichst mit den bestehenden Entwicklungsumgebungen verwendet werden können und idealerweise alle Arten von
+Undefined Behavior erkennen.
+
+Hinweis: Da in der Arbeit vermutlich Source Code der Mitutoyo CTL Germany GmbH offengelegt wird, ist die Arbeit unter Verschluss zu halten.
