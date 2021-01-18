@@ -1,0 +1,86 @@
+\chapter{Requirements Engineering}
+\label{ch:requirements}
+
+Das Requirements Engineering bezieht sich in diesem Projekt auf das Erfassen von Stakeholdern und das Ermitteln von Anforderungen.
+
+Wegen fehlenden oder falschen Anforderungen können viele Projekte nicht die gewünschten Ziele
+erreichen \cite[S.~4-9]{Ebert:SystematischesReqEng}. Aus diesem Grund ist es sinnvoll zum Beginn eines Projektes Stakeholder zu erfassen,
+eine Vision aufzustellen und Anforderungen an des Endprodukt zu ermitteln.
+
+
+\section{Stakeholder}
+\label{sec:stakeholder}
+
+Die Stakeholder-Analyse identifiziert wichtige Anspruchsträger des Projektes.
+Die nachfolge Tabelle wurde nach \cite[S.~58-60]{Ebert:SystematischesReqEng} ausgefüllt.
+Eine Analyse der Konfliktpotienzale entfällt, da es sich bei diesem Projekt um eine studentische Arbeit handelt, wobei keine Konflikte bei
+der Entwicklung entstehen.
+
+\begin{table}[H]
+    {
+        \tiny
+        \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|}
+            \hline
+            Rolle
+             & Name
+             & Aufgabenbeschreibung
+             & Verantwortung
+             & Hintergrundinformationen
+             & Verfügbarkeit
+            \\
+            \hline
+            \cline{1-6}
+            Gutachter Intern
+             & TW
+             & Aus- und Weiterbildung des Personals
+             & Trainer (Studenten) \newline
+            Trainer (Mitarbeiter)
+             & Betreut die Studienarbeit
+             & Direkt (Stakeholder arbeitet in der gleichen Firma/Abteilung)
+            \\
+            \cline{1-6}
+            Entwickler
+             &
+             & Softwareentwicklung
+             &
+             & Soll Tools benutzen um \gls{ub} zu vermeiden
+             &
+            \\
+            \cline{1-6}
+            Tester
+             &
+             & Testen der Software
+             & Tester
+             & Weniger Fehler in der Software erleichtert die Arbeit
+             &
+            \\
+            \cline{1-6}
+            Architekt
+             & DB
+             & Kontrollieren des Source Code falls Selbstkontrolle nicht klappt
+             & Softwarearchitekt
+             & Hat den Bug bearbeitet und behoben
+             & Direkt
+            \\
+            \cline{1-6}
+            -
+             & TF
+             &
+             &
+             & Verantwortlich für TFS Zugang
+             & Direkt
+            \\
+            \cline{1-6}
+            Geschäftsführer
+             & PK
+             & Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)
+             & Geschäftsführer
+             & Finanziert Studium
+             & Direkt
+            \\
+            \hline
+        \end{tabularx}
+    }
+    \caption{Stakeholder}
+    \label{tab:stakeholder}
+\end{table}
