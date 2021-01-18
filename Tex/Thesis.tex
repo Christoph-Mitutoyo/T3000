@@ -6,6 +6,31 @@
 \usepackage{style}
 \usepackage{dhbwTitlepage} % Eigene Titelseite verwenden
 
+%Code-Formatierung
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.03,0.6,0.18}
+\definecolor{lgray}{rgb}{0.2,0.2,0.2}
+
+\lstset{frame=tb,
+  aboveskip=7mm,
+  belowskip=7mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle=\linespread{0.9}\small\ttfamily,
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  identifierstyle=\color{lgray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=3,
+  postbreak=\mbox{\textcolor{blue}{$\hookrightarrow$}\space},
+}
+
 
 % "Metadaten"
 \title{\Large{Evaluierung von Tools zum Auffinden von Undefined Behavior}}
