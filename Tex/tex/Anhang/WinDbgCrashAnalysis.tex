@@ -16,6 +16,9 @@
 Vom betroffenen Absturz, der womöglich auf Undefined Behavior zurückzuführen ist, wurde ein Crash Dump erstellt.
 Dieser Anhang beschreibt anhand einer aufgezeichneten Logdatei, welche Befehle genutzt wurden, um den Crash Dump zu analysieren.
 Bei der analysierten Datei handelt es sich um einen Crash Dump mit vollständig enthaltenem Speicherinhalt. Die Datei ist ca. 1 GB groß.
+
+Die hier beschriebene Analyse wurde von Mitarbeitern des CTL durchgeführt und für die Studienarbeit zur Verfügung gestellt.
+
 \subsection{Grundlegende Prüfungen}
 \begin{lstlisting}
 0:000> ||
@@ -128,7 +131,7 @@ You can troubleshoot most symbol related issues by turning on symbol loading dia
 You should also verify that your symbol search path (.sympath) is correct.
 \end{lstlisting}
 
-Anhand der beiden bekannten und für die Fehleranalyse notwendigen Module Geopak und MnGeom3 kann überprüft werden, ob die Symbole korrekt geladen wurden.
+Anhand der beiden bekannten und für die Fehleranalyse notwendigen Module \verb|Geopak| und \verb|MnGeom3| kann überprüft werden, ob die Symbole korrekt geladen wurden.
 
 \begin{lstlisting}
 0:000> lm m geopak*
@@ -353,6 +356,52 @@ Der Werte von \verb|pLoc| und dessen lokale Kopie \verb|Loc| enthalten allerding
 
 Der Wert für \verb|pDir| ist nicht auffällig.
 
+\subsection{Unit Test}
+
+Zunächst wurde der Unit Test mit den ermittelten Parametern angelegt. Danach wurden die Werte verkürzt und vereinfacht.
+Mit Hilfe von SEH (structured exception handling) konnte die Access Violation im Unit Test nachgewiesen werden.
+Es ist allerdings zu berücksichtigen, dass im Fall von Undefined Behavior alle Unit Tests nicht aussagekräftig sind.
+
+\begin{lstlisting}[language=C]
+      TEST_METHOD(QNAN_causes_undefined_behavior_due_to_nullpointer_dereferencing)
+      {
+          const UInt4 ulNoofPnts = 3;
+          VecR8 aPoints[3] =
+          {
+             {1 ,1 ,1 },
+             {1 ,1 ,1 },
+             {1 ,1 ,1 },
+          };
+          VecR8 matDir = { 1, 1, 1 };
+          double qnan = std::numeric_limits<double>::quiet_NaN();
+          VecR8 Loc = { 1, qnan, 1 };
+          VecR8 Dir = { 1, 1, 1 };
+          bool exception = false;
+          __try {
+              tg_ajc_lin_ext(ulNoofPnts, aPoints, &matDir, &Loc, &Dir, True, True);
+          }
+          __except (
+              GetExceptionCode() == EXCEPTION_ACCESS_VIOLATION
+              ? EXCEPTION_EXECUTE_HANDLER
+              : EXCEPTION_CONTINUE_SEARCH) {
+              exception = true;
+          }
+          Assert::IsTrue(exception);
+      }
+\end{lstlisting}
+
+\verb|tg_ajc_lin_ext()| ruft \verb|tg_ajc_lin_int()| auf. \verb|pLoc| wird an die Funktion \verb|pln_para_pnt()| übergeben, die das Skalarprodukt ausrechnet (\verb|vec_sca_prod()|).
+Hierbei wird NaN weiterpropagiert, so dass auch \verb|Dist| NaN wird.
+
+Die Funktion \verb|min_max_dist_pln()| bekommt \verb|Dist| übergeben und propagiert ihn an \verb|D|. Dadurch ergeben alle Vergleiche im Code
+
+\begin{lstlisting}[language=C, numbers=left, firstnumber=775]
+   if (D < DMin) {LocalR.MinVal = D; DMin=D; LocalR.MinPnt = &aPoints[i];}
+   if (D > DMax) {LocalR.MaxVal = D; DMax=D; LocalR.MaxPnt = &aPoints[i];} 
+\end{lstlisting}
+
+ein negatives Ergebnis und keine der Pointer \verb|MinPnt| und \verb|MaxPnt| werden zugewiesen. Sie bleiben auf ihrem Default-Wert \verb|NULL|.
+
 \subsection{Mögliche Herkunft von NaN}
 
 Der Speicherinhalt an Stelle \verb|0x561233b470| enthält den NaN Wert für die Eigenschaft \verb|y|.
@@ -376,3 +425,64 @@ Evaluate expression: -56 = ffffffff`ffffffc8
 \end{lstlisting}
 
 Falls das zutrifft, wäre ihr Wert -56 gewesen.
+
+Der Wert NaN wurde bereits an die Funktion \verb|tg_ajc_lin_int()| übergeben. Der gemeldete Bug betrifft also ggf. nicht nur die Dereferenzierung eines Nullpointers, sondern auch frühere Methoden auf dem Callstack. Betroffen sind:
+
+\begin{lstlisting}
+0:000> k L5
+ # Child-SP          RetAddr               Call Site
+00 00000056`1233afe0 00007ff9`95c1d8b8     MnGeom364!tg_ajc_lin_int+0x14e
+01 00000056`1233b350 00007ff9`95c1fefb     MnGeom364!tg_ajc_lin_rl+0xd8
+02 00000056`1233b560 00007ff7`fae310df     MnGeom364!tg_inn_ajc_lin+0x2b
+03 00000056`1233b6b0 00007ff7`fae4a291     GEOPAK64!pel_line+0x77f
+04 00000056`1233bf00 00007ff7`fae49687     GEOPAK64!pelm_comp_elem_intern+0xc01
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[language=C, numbers=left, firstnumber=977]
+INTERN void tg_ajc_lin_rl (UInt4    ulNoofPnts,
+                           VecR8 LP aPoints,
+                           const VecR8 LP pMatDir,
+                           VecR8 LP pLoc,
+                           VecR8 LP pDir,
+                           VecR8 LP pMaxPnt,
+                           VecR8 LP pMinPnt, 
+                           Bool     bFitLin)
+/*************************************************************************
+*************************************************************************/
+{ VecR8  LocR = *pLoc, LocL = *pLoc, vTemp,
+         DirR = *pDir, DirL = *pDir, 
+         MatDir = *pMatDir, Extremum, MaxPnt, MinPnt, Loc;
+  Real8  MxD, Dist, Tmp = 0.0;
+  MinMaxDist_T Local, LocalR, LocalL;
+
+LocalR = tg_ajc_lin_int(ulNoofPnts, aPoints, pMatDir, &LocR, &DirR, True,  bFitLin);
+LocalL = tg_ajc_lin_int(ulNoofPnts, aPoints, pMatDir, &LocL, &DirL, False, bFitLin);
+\end{lstlisting}
+
+Hier werden \verb|&LocL| sowie \verb|&LocR| übergeben. In beiden Fällen handelt es sich um Kopien von \verb|pLoc|.
+
+\begin{lstlisting}[language=C, numbers=left, firstnumber=1012]
+ErrNoT EXPORT tg_inn_ajc_lin (UInt4    ulNoofPnts,
+                              VecR8 LP aPoints,
+                              const VecR8 LP pMatDir,
+                              VecR8 LP pLoc,
+                              VecR8 LP pDir,
+                              Real8 LP pdftLambda1,
+                              Real8 LP pdftLambda2,
+                              Real4 LP pftMaxDif)
+/*************************************************************************
+                                 <<FIT>>
+*************************************************************************/
+{ VecR8  MatDir, MaxPnt, MinPnt, Loc;
+  Real8  Dist, Tmp;
+
+if( 3 > ulNoofPnts ) return ERR_TG_INSUF_PTS;
+tg_ajc_lin_rl (ulNoofPnts, aPoints, pMatDir, &Loc, pDir, &MaxPnt, &MinPnt, True);
+//projection the Gau\ss centroid on the Tschebycheff line
+MatDir = vec_norm(vec_vec_prod(*pDir, vec_vec_prod(*pMatDir, *pDir)), &Tmp);
+*pLoc = bg_proj_pnt_pln (*pLoc, MatDir, Loc);
+\end{lstlisting}
+
+Hier wird \verb|&Loc| an die Funktion übergeben, \verb|Loc| bei der Deklaration aber nicht initialisiert.
