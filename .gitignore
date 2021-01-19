@@ -1,5 +1,7 @@
 *.tmp
 
+*.pdf
+
 # Word temporary
 ~$*.doc*
 
