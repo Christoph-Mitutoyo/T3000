@@ -1,17 +1,18 @@
 \lstdefinelanguage{WinDbg}{
-    alsoletter={., |, +, :, 0, >, !, ?},
-    keywords=[1]{.time, .exr, .sympath, .sympath+, .symfix, .symfix+, .symopt, .symopt+, |, ||, .reload, lm, !sym, k, .excr, .ecxr, .thread, .cxr, .frame, dv, dD, dx, dq, ?},
-    keywordstyle=[1]\color{dkgreen},
-    keywords=[2]{0:000>},
-    keywordstyle=[2]\color{gray},
-    sensitive=false, % keywords are not case-sensitive
-    morecomment=[l]{}, % l is for line comment
-    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
-    morestring=[b]" % strings are enclosed in double quotes
+   alsoletter={., |, +, :, 0, >, !, ?},
+   keywords=[1]{.time, .exr, .sympath, .sympath+, .symfix, .symfix+, .symopt, .symopt+, |, ||, .reload, lm, !sym, k, .excr, .ecxr, .thread, .cxr, .frame, dv, dD, dx, dq, ?},
+   keywordstyle=[1]\color{dkgreen},
+   keywords=[2]{0:000>},
+   keywordstyle=[2]\color{gray},
+   sensitive=false, % keywords are not case-sensitive
+   morecomment=[l]{}, % l is for line comment
+   morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+   morestring=[b]" % strings are enclosed in double quotes
 } % 
 \lstset{language=WinDbg}
 
 \section{WinDbg Crash Analyse}
+\label{sec:windbg}
 Vom betroffenen Absturz, der womöglich auf Undefined Behavior zurückzuführen ist, wurde ein Crash Dump erstellt.
 Dieser Anhang beschreibt anhand einer aufgezeichneten Logdatei, welche Befehle genutzt wurden, um den Crash Dump zu analysieren.
 Bei der analysierten Datei handelt es sich um einen Crash Dump mit vollständig enthaltenem Speicherinhalt. Die Datei ist ca. 1 GB groß.
@@ -364,7 +365,7 @@ Der Speicherinhalt an Stelle \verb|0x561233b470| enthält den NaN Wert für die 
     [+0x010] z                : 4.750082 [Type: double]
 \end{lstlisting}
 
-Im Fall einer nichtinitalisierten Variable könnte die Gleitkommazahl auch eine 64 Bit Ganzzahl gewesen sein. 
+Im Fall einer nichtinitalisierten Variable könnte die Gleitkommazahl auch eine 64 Bit Ganzzahl gewesen sein.
 
 \begin{lstlisting}
 0:000> dq /c 3 0x561233b470 L3

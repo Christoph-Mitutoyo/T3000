@@ -13,69 +13,70 @@ eine Vision aufzustellen und Anforderungen an des Endprodukt zu ermitteln.
 
 Die Stakeholder-Analyse identifiziert wichtige Anspruchsträger des Projektes.
 Die nachfolge Tabelle wurde nach \cite[S.~58-60]{Ebert:SystematischesReqEng} ausgefüllt.
-Eine Analyse der Konfliktpotienzale entfällt, da es sich bei diesem Projekt um eine studentische Arbeit handelt, wobei keine Konflikte bei
-der Entwicklung entstehen.
+Eine Analyse der Verantwortung einzelner Stakeholder entfällt, da sich diese in dieser Arbeit mit der Rolle deckt. Zusätzlich arbeit jeder
+Stakeholder in der gleichen Firma/Abteilung, weshalb die Spalte \glqq{}Verfügbarkeit\grqq{} ausgelassen wird.
 
 \begin{table}[H]
     {
         \tiny
-        \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|}
+        \begin{tabularx}{\linewidth}{|X|X|X|X|X|}
             \hline
             Rolle
              & Name
              & Aufgabenbeschreibung
-             & Verantwortung
              & Hintergrundinformationen
-             & Verfügbarkeit
+             & Konfliktpotenzial
             \\
             \hline
-            \cline{1-6}
+            \cline{1-5}
             Gutachter Intern
              & TW
              & Aus- und Weiterbildung des Personals
-             & Trainer (Studenten) \newline
-            Trainer (Mitarbeiter)
-             & Betreut die Studienarbeit
+             & Betreut/bewertet die Studienarbeit \newline
+            Beratung/Analyse von \ref{sec:windbg}
              & Direkt (Stakeholder arbeitet in der gleichen Firma/Abteilung)
             \\
-            \cline{1-6}
+            \cline{1-5}
+            Gutachter DHBW
+             &
+             & Gutachter
+             & Bewertet die Studienarbeit
+             &
+            \\
+            \cline{1-5}
             Entwickler
              &
              & Softwareentwicklung
-             &
              & Soll Tools benutzen um \gls{ub} zu vermeiden
              &
             \\
-            \cline{1-6}
+            \cline{1-5}
             Tester
              &
              & Testen der Software
-             & Tester
              & Weniger Fehler in der Software erleichtert die Arbeit
              &
             \\
-            \cline{1-6}
+            \cline{1-5}
             Architekt
              & DB
              & Kontrollieren des Source Code falls Selbstkontrolle nicht klappt
-             & Softwarearchitekt
              & Hat den Bug bearbeitet und behoben
              & Direkt
             \\
-            \cline{1-6}
+            \cline{1-5}
             -
              & TF
-             &
              &
              & Verantwortlich für TFS Zugang
              & Direkt
             \\
-            \cline{1-6}
+            \cline{1-5}
             Geschäftsführer
              & PK
              & Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)
-             & Geschäftsführer
-             & Finanziert Studium
+             & Finanziert Studium \newline
+            Finanziert Tool
              & Direkt
             \\
             \hline
