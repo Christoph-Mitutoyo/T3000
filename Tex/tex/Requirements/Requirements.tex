@@ -93,3 +93,95 @@ Stakeholder in der gleichen Firma/Abteilung, weshalb die Spalte \glqq{}Verfügba
     \caption{Stakeholder}
     \label{tab:stakeholder}
 \end{table}
+
+\section{Anforderungen}
+\label{sec:anforderungen}
+
+Durch die Befragung der Stakeholder wurden Anforderungen an das Projekt ermittelt.
+
+Anforderungen erhalten die Anforderungsattribute Identifikator, Beschreibung, Priorität und Aufwand
+\cite[S.~479~f.]{Balzert:Lehrbuch-der-softwaretechnik}. Da die in diesem Projekt enwickelte Softwarelösung keinen direkten Schaden
+an Menschen verursachen kann, wird das Anforderungsattribut \glqq{}Kritikalität\grqq{} außer Acht gelassen.
+
+\subsection{Funktionale Anforderungen}
+\label{subsec:funktional}
+
+\begin{table}[H]
+    {
+        \begin{tabularx}{\linewidth}{|C{1cm}|X|C{2cm}|}
+            \hline
+            ID
+             & Beschreibung
+             & Stakeholder
+            \\
+            \hline
+            \cline{1-3}
+            F-1
+             & Das Tool soll nicht initialisierte Variablen hervorheben
+             & TW, DB
+            \\
+            \cline{1-3}
+            F-2
+             & Das Tool soll Nullpointer Dereferenzierung hervorheben
+             & TW
+            \\
+            \cline{1-3}
+            F-3
+             & Das Tool soll keinen/möglichst wenig korrekten Code hervorheben
+             & DB, TF
+            \\
+            \cline{1-3}
+            F-4
+             & Das Tool soll über eine config oder cmd Datei automatisierbar sein
+             & DB, TF
+            \\
+            \cline{1-3}
+            F-5
+             & Das Tool soll erklären warum eine Stelle hervorgehoben wurde und Lösungsvorschläge liefern
+             & DB
+            \\
+            \cline{1-3}
+            F-6
+             & Das Tool soll eine Risikoanalyse der markierten Fehler durchführen
+             & DB
+            \\
+            \hline
+        \end{tabularx}
+    }
+    \caption{Funktionale Anforderungen}
+    \label{tab:funktional}
+\end{table}
+
+\subsection{Nichtfunktionale Anforderungen}
+\label{subsec:nichtfunktional}
+
+\begin{table}[H]
+    {
+        \begin{tabularx}{\linewidth}{|C{1cm}|X|C{2cm}|}
+            \hline
+            ID
+             & Beschreibung
+             & Stakeholder
+            \\
+            \hline
+            \cline{1-3}
+            NF-1
+             & Das Tool ist mit anderen, bereits im Unternehmen verwendeten, Tools kompatibel
+             & TF, DB
+            \\
+            \cline{1-3}
+            NF-2
+             & Das Tool liegt innerhalb der Kostenvorstellung
+             & PK
+            \\
+            \cline{1-3}
+            NF-3
+             & Eine Anwendungsanleitung für das Tool ist verfügbar
+             & DB
+            \\
+            \hline
+        \end{tabularx}
+    }
+    \caption{Nichtfunktionale Anforderungen}
+    \label{tab:nichtfunktional}
+\end{table}
