@@ -2,6 +2,9 @@
 
 *.pdf
 
+# Thesis.pdf generates merge issues
+Thesis.pdf
+
 # Word temporary
 ~$*.doc*
 
