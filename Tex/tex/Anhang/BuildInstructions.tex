@@ -10,7 +10,7 @@
     morecomment=[l]{}, % l is for line comment
     morecomment=[s]{/*}{*/}, % s is for start and end delimiter
     morestring=[b]" % strings are enclosed in double quotes
-}
+}%
 \lstset{language=VS}
 
 \section{Build Instructions}
@@ -56,7 +56,7 @@ Anschließend öffnet man den Ordner \textit{Mitutoyo.MCOSMOS.BasicsLibs} mit Vi
 
 Da \glossary{masm} keine Leerzeichen im Pfadname verarbeiten kann, muss in den Eigenschaften der Datei
 \textit{Mitutoyo.MCOSMOS.BasicsLibs\textbackslash Source\textbackslash CryptoPP\textbackslash x64dll.asm} unter \glqq{}Custom Build Tool\grqq{}
--> \glqq{}General\grqq{} -> \glqq{}Command Line\grqq{} folgender Eintrag eingegeben werden: \textit{ml64.exe /c /nologo /Fo"\$(IntDir)x64dll.obj" /Zi *\%(FullPath)*}
+-> \glqq{}General\grqq{} -> \glqq{}Command Line\grqq{} folgender Eintrag eingegeben werden: \textit{ml64.exe /c /nologo /Fo"\$(IntDir)x64dll.obj" /Zi "\%(FullPath)"}
 (vgl. \ref{img:x64dll_correction}).
 
 Des Weiteren muss in der Datei \textit{IniFileHelper.h} folgender Code ergänzt werden:

@@ -1,16 +1,18 @@
-% Hinweis: Um das finale Dokument zu erstellen, als weitere Option "final" angeben -> 12pt,final
-% Dies versteckt u.a. TODO-Elemente
-\documentclass[12pt]{report}
-%für finale Version
-%documentclass[12pt,final]{report}
-\usepackage{style}
-\usepackage{dhbwTitlepage} % Eigene Titelseite verwenden
-\usepackage{censor}
-% uncomment the following line for intern documents
-% \StopCensoring
+\documentclass[12pt,final]{report}
 
-%Code-Formatierung
-\usepackage{listings}
+\usepackage{style}
+\usepackage{dhbwTitlepage}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{svg}
+\usepackage{seqsplit}
+\usepackage{rotating}
+\usepackage{listingsutf8}
+\usepackage{fancyhdr}
+\usepackage{appendix}
+\usepackage{censor}
+\usepackage{tipa}
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.03,0.6,0.18}
@@ -19,6 +21,7 @@
 \definecolor{purple}{rgb}{0.8,0.4,1}
 
 \lstset{frame=tb,
+  language=C++,
   aboveskip=7mm,
   belowskip=3mm,
   showstringspaces=false,
@@ -31,59 +34,77 @@
   commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},
   breaklines=true,
-  breakatwhitespace=false,
+  breakatwhitespace=true,
   tabsize=3,
-  postbreak=\mbox{\textcolor{blue}{$\hookrightarrow$}\space},
 }
+
+% Rechtschreibprüfung
+% Kommandozeile für die Rechtschreibprüfung dafür: lualatex '\def\spelling{}\input{Arbeit}'
+\ifdef{\spelling}{
+    \usepackage{spelling}
+    \usepackage{microtype}
+    \DisableLigatures{encoding = *, family = *}
+}
+
+% Zensieren
+% Kommandozeile für eine unzensierte Version: lualatex '\def\uncensored{}\input{Arbeit}'
+\ifdef{\uncensored}{
+    \StopCensoring
+}
+
+\def\censorruleheight{0.1ex}
+\def\censorruledepth{0.5ex}
 
 
 % "Metadaten"
-\title{\Large{Evaluierung von Tools zum Auffinden von Undefined Behavior}}
+\title{\Large{Evaluierung von Tools zu mAuffinden von Undefined Behavior}}
 \project{T3000}
 \author{Christoph Böhringer}
 \supervisor{Dipl.-Inform. (FH) Thomas Weller}
 \studentNumber{3275565}
-\class{TINF18-IN}
+\class{TINF18IN}
 \company{Mitutoyo CTL Germany GmbH}
 \date{21.06.2021}
 
 % Initialisierungen für Abkürzungsverzeichnis
-\makenoidxglossaries
 \loadglsentries{Acronyms.tex}
-
+\makeglossaries
+\setglossarystyle{altlist}
 \addbibresource{literature.bib}
 
+% Formatierung der Kopfzeile
+\fancyhf{}                              % Standarddefinitionen der Kopfzeile löschen
+\fancyfoot[C]{\thepage}                 % Seitenzahl in der Mitte der Fußzeile angeben
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
 \begin{document}
-
 \pagenumbering{Roman}
-
-\maketitle
-\include{tex/Erklaerung}
-\include{tex/Abstract/Abstract}
-\tableofcontents
-\listoffigures
-\listoftables
-\printnoidxglossary[type=\acronymtype, title={Abkürzungen}, nogroupskip]
-\printnoidxglossary[type=main]
-%%%%%%%%%%%%% Inhalt %%%%%%%%%%%%%
-
+\maketitle                                  % Titelblatt
+% \include{tex/Sperrvermerk}                % Sperrvermerk
+\include{tex/Erklaerung/Erklaerung}         % Erklärung
+\include{tex/Abstract/Abstract}             % Abstract
+\tableofcontents                            % Inhaltsverzeichnis
+\listoffigures                              % Abbildungsverzeichnis
+\listoftables                               % Tabellenverzeichnis
+\printglossary[
+    type=\acronymtype,
+    title={Abkürzungen},
+    nogroupskip
+]                                           % Abkürzungsverzeichnis
+\printglossary[type=main]                   % Abkürzungsverzeichnis
 \clearpage
 \pagenumbering{arabic}
-
-\include{tex/Einleitung/Einleitung}
-\include{tex/SmallTalk/Smalltalk}
-\include{tex/Stand-der-Technik/stand-technik}
+\pagestyle{fancy}
+\include{tex/Einleitung/Einleitung}             % Einleitung
 \include{tex/Requirements/Requirements}
-\include{tex/Loesungsfindung/loesungsfindung}
-\include{tex/Loesungsfindung/loesungsbewertung}
-\include{tex/Umsetzung/umsetzung}
-\include{tex/Praxistests/Praxistests}
-\include{tex/Zusammenfassung_Ausblick/Zusammenfassung}
-\include{tex/Zusammenfassung_Ausblick/Ausblick}
-\include{tex/Anhang/Anhang}
+\include{tex/Stand-der-Technik/stand-technik}
+\include{tex/Zusammenfassung_Ausblick/Zusammenfassung}   % Zusammenfassung
+\include{tex/Anhang/Anhang}                     % Anhang
 
-
-\printbibliography          % Literaturverzeichnis
-\listoftodos                % Todoverzeichnis
-
+\printbibliography                          % Literaturverzeichnis
 \end{document}
