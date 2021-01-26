@@ -16,13 +16,16 @@
 \usepackage{wrapfig}
 \RequirePackage[export]{adjustbox}                  % Positionierung von Bildern
 \usepackage{tabularx}                               % Tabellen
+\usepackage{tabulary}                               % Tabellen
+\usepackage{longtable}                              % Tabellen
+\usepackage{listings}
 \usepackage{multirow}                               % Tabellenzeile über mehrere Zeilen
 \usepackage{float}                                  % Exakte Platzierung von Objekten mit H-Modifier
 \usepackage{textcomp}                               % Verhindert "not defining ..."-Warnungen durch gensymb
 \usepackage{gensymb}                                % Sonderzeichen, wie °
 % \usepackage{amssymb}                              % Mathe
 % \usepackage{amsthm}                               % Mathe
-\usepackage[style=numeric, sorting=none]{biblatex}    % Zitieren
+\usepackage[style=numeric, sorting=none, doi=false, isbn=false]{biblatex}    % Zitieren
 \usepackage{csquotes}                               % Empfohlen bei Verwendung von biblatex
 \usepackage[acronym, toc, nopostdot, nonumberlist]
     {glossaries}                                    % Abkürzungsverzeichnis
@@ -44,22 +47,18 @@
 \setlength{\parindent}{0cm} % Einrückung bei Paragraphenbeginn entfernen
 \setlength{\parskip}{.8em}  % Abstand zwischen Paragraphen
 
-% Platz für Kommentare am Rand
-\setlength{\marginparwidth}{2cm}
 
-% Pfad, der Bilder enthält
-\graphicspath{{img/}}
+\setlength{\marginparwidth}{2cm} % Platz für Kommentare am Rand
+
+\graphicspath{{img/}} % Pfad, der Bilder enthält
 
 % Stil für Abkprzungsverzeichnis (bzw. glossaries allgemein)
-\setglossarystyle{alttree}
+%\setglossarystyle{alttree}
+
 %%%%%%%%%%%%% Eigene Spaltendefinitionen für Tabellen %%%%%%%%%%%%%
 
 % Spalte mit definierbarer Breite und linksbündig, z.B. L{5cm}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % Horizontal und vertikal zentrierter Inhalt mit definierbarer Breite, z.B. C{5cm}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
-
-% Deutsche Anführungszeichen um einen Text
-\newcommand{\zitattext}[1]{\glqq{#1}\grqq{}}
-
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
