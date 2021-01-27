@@ -23,8 +23,8 @@ Benötigte Tools:
 \begin{itemize}
     \item Windows Betriebssystem
     \item WinDbg Preview \cite{misc:windbgpreview}
-    \item Crash Dumb des Bugs
-    \item Symbol-Dateien des Codes -> GEOPAK64.pdb, MnGeom364.pdbS
+    \item Crash Dumb des Bugs\footnotemark
+    \item Symbol-Dateien des Codes -> GEOPAK64.pdb, MnGeom364.pdbS \footnotemark[\value{footnote}] \footnotetext{Erreichbar unter H:\textbackslash thomasW\textbackslash v\_DB}
     \item Zugriff auf Azure DevOps Server von Mitutoyo-CTL Germany GmbH
 \end{itemize}
 
@@ -44,17 +44,18 @@ Benötigte Tools:
 \end{itemize}
 
 Damit der Source Code kompiliert werden kann, muss dieser zuest mit Git Extensions (oder einem ähnlichen Tool) von
-\url{http://tfs-ctlg.mitutoyo-ctl.de/Public/Projects/_git/Mitutoyo.MCOSMOS.BasicsLibs} geklont werden. \newline
-Anschließend öffnet man den Ordner \textit{Mitutoyo.MCOSMOS.BasicsLibs} mit Visual Studio.
+\url{http://tfs-ctlg.mitutoyo-ctl.de/Public/Projects/_git/Mitutoyo.MCOSMOS.BasicsLibs} geklont werden. Damit der Bug noch vorhanden ist, sollte der Source Code vom Stand des
+Commits \verb|f5d4dbb8| verwendet werden. \newline
+Anschließend öffnet man die Projekt-Datei \textit{Mitutoyo.MCOSMOS.BasicsLibs\textbackslash Source\textbackslash MBasicsLibs.sln} mit Visual Studio.
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.85\textwidth]{x64dll_correction}
-    \caption{Hier den Eintrag ändern}
+    \caption{Durchzuführende Korrektur}
     \label{img:x64dll_correction}
 \end{figure}
 
-Da \glossary{masm} keine Leerzeichen im Pfadname verarbeiten kann, muss in den Eigenschaften der Datei
+Da \gls{masm} keine Leerzeichen im Pfadname verarbeiten kann, muss in den Eigenschaften der Datei
 \textit{Mitutoyo.MCOSMOS.BasicsLibs\textbackslash Source\textbackslash CryptoPP\textbackslash x64dll.asm} unter \glqq{}Custom Build Tool\grqq{}
 -> \glqq{}General\grqq{} -> \glqq{}Command Line\grqq{} folgender Eintrag eingegeben werden: \textit{ml64.exe /c /nologo /Fo"\$(IntDir)x64dll.obj" /Zi "\%(FullPath)"}
 (vgl. \ref{img:x64dll_correction}).
