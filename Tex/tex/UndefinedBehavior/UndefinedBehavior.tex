@@ -1,0 +1,101 @@
+\chapter{Undefined Behavior}
+\label{ch:ub}
+
+\section{Was ist Undefined Behavior?}
+\label{sec:ub_was}
+
+\glqq{}Permissible undefined behavior ranges from ignoring the situation completely with unpredictable results, to behaving during translation or program execution in a
+documented manner characteristic of the environment\grqq{}\cite[S.8]{book:cpp-standard}
+
+
+eigentlich: aus offizieller doku (Standard), kostet aber und wird wegen Umfang des PRojekts
+nicht gekauft, deshalb aus anderen Quellen
+
+\section{Ursachen von Undefined Behavior}
+\label{sec:ub_ursachen}
+
+Zwei Arten: immediate UB(serious errors), deferred UB(Ausführung erzeugt unvorhersehbares Verhalten)
+
+\begin{itemize}
+    \item Signed overflow
+    \item Access out of bounds
+    \item Uninitialized scalar
+    \item Invalid scalar
+    \item Null pointer dereference (iUB)
+    \item Access to pointer passed to realloc
+    \item Infinite loop without side-effects
+    \item Dividing by zero (iUB)
+    \item The effect of attempting to modify a string-literal is undefined.
+\end{itemize}
+
+unsigned char x = 12;
+{ unsigned char x = x; }
+Here, the initialization of the second x has undefined behavior, because the initializer accesses the second x outside its
+lifetime (S.35)
+
+The program has undefined behavior if:
+(6.1) — the object will be or was of a class type with a non-trivial destructor and the pointer is used as the
+operand of a delete-expression,
+(6.2) — the pointer is used to access a non-static data member or call a non-static member function of the
+object, or
+(6.3) — the pointer is implicitly converted (7.3.12) to a pointer to a virtual base class, or
+(6.4) — the pointer is used as the operand of a static\_cast (7.6.1.9), except when the conversion is to pointer
+to cv void, or to pointer to cv void and subsequently to pointer to cv char, cv unsigned char, or
+cv std::byte (17.2.1), or
+(6.5) — the pointer is used as the operand of a dynamic\_cast
+(S.61)
+
+Therefore, undefined behavior results if an object that is being constructed in one thread is referenced from
+another thread without adequate synchronization. (S.63)
+
+int f(bool b) {
+        unsigned char c;
+        unsigned char d = c; // OK, d has an indeterminate value
+        int e = d; // undefined behavior
+        return b ? d : 0; // undefined behavior if b is true
+    }
+(S.63 f.)
+
+The effect of using an invalid pointer value (including passing it to a deallocation function) is undefined,
+(S.67)
+
+Overflow for signed arithmetic yields undefined behavior
+(S.74)
+
+If a side effect on a memory location (6.7.1) is unsequenced relative to either another
+side effect on the same memory location or a value computation using the value of any object in the same
+memory location, and they are not potentially concurrent (6.9.2), the behavior is undefined.
+void g(int i) {
+        i = 7, i++, i++; // i becomes 9
+        i = i++ + 1; // the value of i is incremented
+        i = i++ + i; // undefined behavior
+        i = i + 1; // the value of i is incremented
+    }
+(S.80)
+
+If std::exit is called to
+end a program during the destruction of an object with static or thread storage duration, the program has
+undefined behavior.
+(S.86)
+Besser: If there is a use of an object with static storage duration that does not happen before the object’s destruction,
+the program has undefined behavior
+(S.89)
+
+Calling a function through an expression whose function type is different from the function type of the called
+function’s definition results in undefined behavior.
+(S.117)
+
+Data races result in undefined behavior
+(S.1376)
+
+Any attempt to modify (7.6.19, 7.6.1.6, 7.6.2.3) a const object (6.8.4) during its lifetime (6.7.3) results in
+undefined behavior.
+(S.174)
+
+
+
+\subsection{Beispiele}
+\label{subsec:ub_beispiele}
+
+\section{Warum wird Undefined Behavior benutzt?}
+\label{sec:ub_warum}
