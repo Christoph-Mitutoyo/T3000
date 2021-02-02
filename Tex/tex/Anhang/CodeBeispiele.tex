@@ -1,20 +1,35 @@
+\lstdefinelanguage{cpp}{
+    alsoletter={., |, +, :, 0, >, !, ?},
+    keywords=[1]{unsigned, int, char, bool},
+    keywordstyle=[1]\color{purple},
+    keywords=[2]{if, return, else, void},
+    keywordstyle=[2]\color{lorange},
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{//}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b]" % strings are enclosed in double quotes
+} % 
+\lstset{language=cpp}
+
 \section{Code Beispiele}
 \label{sec:codebsp}
 
 \subsection{Indeterminate Values}
 \label{subsec:indeterminate}
-
-int f(bool b) {
+\begin{lstlisting}
+    int f(bool b) {
         unsigned char c;
         unsigned char d = c; // OK, d has an indeterminate value
         int e = d; // undefined behavior
         return b ? d : 0; // undefined behavior if b is true
     }
+\end{lstlisting}
 \cite[S.63 f.]{book:cpp-standard}
 
 \subsection{Nullpointer Dereferenzierung}
 \label{subsec:nullpointer}
 
+\begin{lstlisting}
 int foo(int* p) {
         int x = *p;
         if(!p) return x; // Either UB above or this branch is never taken
@@ -24,13 +39,16 @@ int bar() {
         int* p = nullptr;
         return *p;        // Unconditional UB
     }
+\end{lstlisting}
 \cite{misc:cpp-undefined}
 
 \subsection{Access out of lifetime}
 \label{subsec:outside-lifetime}
 
+\begin{lstlisting}
 unsigned char x = 12;
 { unsigned char x = x; }
+\end{lstlisting}
 \cite[S.35]{book:cpp-standard}
 
 If a side effect on a memory location (6.7.1) is unsequenced relative to either another
