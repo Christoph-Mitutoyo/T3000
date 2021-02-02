@@ -60,7 +60,7 @@
 
 
 % "Metadaten"
-\title{\Large{Evaluierung von Tools zu mAuffinden von Undefined Behavior}}
+\title{\Large{Evaluierung von Tools zum Auffinden von Undefined Behavior}}
 \project{T3000}
 \author{Christoph Böhringer}
 \supervisor{Dipl.-Inform. (FH) Thomas Weller}
@@ -94,13 +94,15 @@
 \tableofcontents                            % Inhaltsverzeichnis
 \listoffigures                              % Abbildungsverzeichnis
 \listoftables                               % Tabellenverzeichnis
-\printnoidxglossary[type=acronym]
-\printglossary[
-  type=\acronymtype,
-  title={Abkürzungen},
-  nogroupskip
-]                                           % Abkürzungsverzeichnis
-\printglossary[type=main]                   % Abkürzungsverzeichnis
+\printnoidxglossary[type=acronym]           % Akronyme
+\printnoidxglossary                         % Glossar
+%\printacronyms
+%\printglossary[
+%  type=\acronymtype,
+%  title={Abkürzungen},
+%  nogroupskip
+%]                                           % Abkürzungsverzeichnis
+%\printglossary[type=main]                   % Abkürzungsverzeichnis
 \clearpage
 \pagenumbering{arabic}
 \pagestyle{fancy}
