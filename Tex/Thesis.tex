@@ -94,7 +94,10 @@
 \tableofcontents                            % Inhaltsverzeichnis
 \listoffigures                              % Abbildungsverzeichnis
 \listoftables                               % Tabellenverzeichnis
-\printnoidxglossary[type=acronym]           % Akronyme
+\printnoidxglossary[
+  type=\acronymtype,
+  title={Abkürzungen},
+  nogroupskip]           % Akronyme
 \printnoidxglossary                         % Glossar
 %\printacronyms
 %\printglossary[
