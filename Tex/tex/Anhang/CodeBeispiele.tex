@@ -1,0 +1,46 @@
+\section{Code Beispiele}
+\label{sec:codebsp}
+
+\subsection{Indeterminate Values}
+\label{subsec:indeterminate}
+
+int f(bool b) {
+        unsigned char c;
+        unsigned char d = c; // OK, d has an indeterminate value
+        int e = d; // undefined behavior
+        return b ? d : 0; // undefined behavior if b is true
+    }
+\cite[S.63 f.]{book:cpp-standard}
+
+\subsection{Nullpointer Dereferenzierung}
+\label{subsec:nullpointer}
+
+int foo(int* p) {
+        int x = *p;
+        if(!p) return x; // Either UB above or this branch is never taken
+        else return 0;
+    }
+int bar() {
+        int* p = nullptr;
+        return *p;        // Unconditional UB
+    }
+\cite{misc:cpp-undefined}
+
+\subsection{Access out of lifetime}
+\label{subsec:outside-lifetime}
+
+unsigned char x = 12;
+{ unsigned char x = x; }
+\cite[S.35]{book:cpp-standard}
+
+If a side effect on a memory location (6.7.1) is unsequenced relative to either another
+side effect on the same memory location or a value computation using the value of any object in the same
+memory location, and they are not potentially concurrent (6.9.2), the behavior is undefined.
+
+void g(int i) {
+        i = 7, i++, i++; // i becomes 9
+        i = i++ + 1; // the value of i is incremented
+        i = i++ + i; // undefined behavior
+        i = i + 1; // the value of i is incremented
+    }
+(S.80)

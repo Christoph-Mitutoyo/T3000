@@ -12,6 +12,7 @@
 \usepackage{appendix}
 \usepackage{censor}
 \usepackage{tipa}
+\usepackage[acronym]{glossaries}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -19,6 +20,8 @@
 \definecolor{lgray}{rgb}{0.2,0.2,0.2}
 \definecolor{lorange}{rgb}{1,0.7,0.37}
 \definecolor{purple}{rgb}{0.8,0.4,1}
+
+\makenoidxglossaries
 
 \lstset{frame=tb,
   language=C++,
@@ -68,7 +71,7 @@
 
 % Initialisierungen für Abkürzungsverzeichnis
 \loadglsentries{Acronyms.tex}
-\makeglossaries
+%\makeglossaries
 \setglossarystyle{altlist}
 \addbibresource{literature.bib}
 
@@ -91,6 +94,7 @@
 \tableofcontents                            % Inhaltsverzeichnis
 \listoffigures                              % Abbildungsverzeichnis
 \listoftables                               % Tabellenverzeichnis
+\printnoidxglossary[type=acronym]
 \printglossary[
   type=\acronymtype,
   title={Abkürzungen},
