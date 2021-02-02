@@ -47,7 +47,9 @@ int bar() {
 
 \begin{lstlisting}
 unsigned char x = 12;
-{ unsigned char x = x; }
+{ 
+    unsigned char x = x; // UB
+}
 \end{lstlisting}
 \cite[S.35]{book:cpp-standard}
 
