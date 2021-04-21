@@ -9,7 +9,12 @@
    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
    morestring=[b]" % strings are enclosed in double quotes
 } % 
-\lstset{language=WinDbg}
+\lstset{
+   language=WinDbg,
+   breaklines=true,
+   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+   breakatwhitespace=false
+}
 
 \section{WinDbg Crash Analyse}
 \label{sec:windbg}
