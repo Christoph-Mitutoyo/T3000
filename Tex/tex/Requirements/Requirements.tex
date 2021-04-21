@@ -16,35 +16,56 @@ Die nachfolge Tabelle wurde nach \cite[S.~58-60]{Ebert:SystematischesReqEng} aus
 Eine Analyse der Verantwortung einzelner Stakeholder entfällt, da sich diese in dieser Arbeit mit der Rolle deckt. Zusätzlich arbeitet jeder
 Stakeholder in der gleichen Firma/Abteilung, weshalb die Spalte \glqq{}Verfügbarkeit\grqq{} ausgelassen wird.
 
-\begin{table}[H]
-    {
-        \tiny
-        \begin{tabularx}{\linewidth}{|X|X|X|X|X|}
-            \hline
-            Rolle            & Name                               & Aufgabenbeschreibung                                             & Hintergrundinformationen                                                          & Konfliktpotenzial                                              \\
-            \hline
-            \cline{1-5}
-            Gutachter Intern & T\censor{homas }W\censor{eller}    & Aus- und Weiterbildung des Personals                             & Betreut/bewertet die Studienarbeit \newline Beratung/Analyse von \ref{sec:windbg} &                                                                \\
-            \cline{1-5}
-            Gutachter DHBW   &                                    & Gutachter                                                        & Bewertet die Studienarbeit                                                        &                                                                \\
-            \cline{1-5}
-            Entwickler       &                                    & Softwareentwicklung                                              & Soll Tools benutzen um \gls{ub} zu vermeiden                                      &                                                                \\
-            \cline{1-5}
-            Tester           &                                    & Testen der Software                                              & Weniger Fehler in der Software erleichtern die Arbeit                             &                                                                \\
-            \cline{1-5}
-            Architekt        & D\censor{ieter }B\censor{locher}   & Kontrollieren des Source Code falls Selbstkontrolle nicht klappt & Hat den Bug bearbeitet und behoben                                                & Konflikt mit bisher verwendetem/vorgeschlagenem Tool           \\
-            \cline{1-5}
-            Build Manager    & T\censor{obias }F\censor{riedrich} & DevOps                                                           & Verantwortlich für TFS Zugang und Build Prozesse                                  &                                                                \\
-            \cline{1-5}
-            Geschäftsführer  & P\censor{eter }K\censor{lein}      & Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)    & Finanziert Studium \newline Finanziert Tool                                       & Zeitliche Verfügbarkeit einer Lösung \newline Kosten des Tools \\
-            \cline{1-5}
-            Student          & Christoph Böhringer                & Verfasst die Arbeit                                              &                                                                                   &                                                                \\
-            \hline
-        \end{tabularx}
-    }
+\begin{tiny}
+\begin{longtable}[H]{llL{3cm}L{3cm}L{3cm}}
+            \toprule
+            \thead[l]{Rolle}            & 
+            \thead[l]{Name}                               & 
+            \thead[l]{Aufgabenbeschreibung}                                             & 
+            \thead[l]{Hintergrundinformationen}                                                          & \thead[l]{Konfliktpotenzial}                                              \\
+            \midrule
+            \endhead
+            Gutachter Intern & 
+            T\censor{homas} W\censor{eller}    & 
+            Aus- und Weiterbildung des Personals                             & 
+            Betreut/bewertet die Studienarbeit \newline Beratung/Analyse von \ref{sec:windbg} &                                                                \\
+            \midrule
+            Gutachter DHBW   &                                    
+            & 
+            Gutachter                                                        & 
+            Bewertet die Studienarbeit                                                        &                                                                \\
+            \midrule
+            Entwickler       &                                    
+            & Softwareentwicklung                                              & 
+            Soll Tools benutzen um \gls{ub} zu vermeiden                                      &                                                                \\
+            \midrule
+            Tester           &                                    
+            & 
+            Testen der Software                                              & 
+            Weniger Fehler in der Software erleichtern die Arbeit                             &                                                                \\
+            \midrule
+            Architekt        & 
+            D\censor{ieter} B\censor{locher}   & 
+            Kontrollieren des Source Code falls Selbstkontrolle nicht klappt & 
+            Hat den Bug bearbeitet und behoben                                                & Konflikt mit bisher verwendetem/vorgeschlagenem Tool           \\
+            \midrule
+            Build Manager    & 
+            T\censor{obias} F\censor{riedrich} & DevOps                                                           & 
+            Verantwortlich für TFS Zugang und Build Prozesse                                  &                                                                \\
+            \midrule
+            Geschäftsführer  & 
+            P\censor{eter} K\censor{lein}      & 
+            Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)    & 
+            Finanziert Studium \newline Finanziert Tool                                       & Zeitliche Verfügbarkeit einer Lösung \newline Kosten des Tools \\
+            \midrule
+            Student          & 
+            Christoph Böhringer                & 
+            Verfasst die Arbeit                                              &                                                                                   &                                                                \\
+            \bottomrule
     \caption{Stakeholder}
     \label{tab:stakeholder}
-\end{table}
+\end{longtable}
+\end{tiny}
 
 \section{Anforderungen}
 \label{sec:anforderungen}
