@@ -12,7 +12,6 @@
 \usepackage{appendix}
 \usepackage{censor}
 \usepackage{tipa}
-\usepackage[acronym]{glossaries}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -20,8 +19,6 @@
 \definecolor{lgray}{rgb}{0.2,0.2,0.2}
 \definecolor{lorange}{rgb}{1,0.7,0.37}
 \definecolor{purple}{rgb}{0.8,0.4,1}
-
-\makenoidxglossaries
 
 \lstset{frame=tb,
   language=C++,
@@ -60,7 +57,7 @@
 
 
 % "Metadaten"
-\title{\Large{Evaluierung von Tools zum Auffinden von Undefined Behavior}}
+\title{Evaluierung von Tools zum Auffinden von Undefined Behavior}
 \project{T3000}
 \author{Christoph Böhringer}
 \supervisor{Dipl.-Inform. (FH) Thomas Weller}
@@ -71,7 +68,7 @@
 
 % Initialisierungen für Abkürzungsverzeichnis
 \loadglsentries{Acronyms.tex}
-%\makeglossaries
+\makeglossaries
 \setglossarystyle{altlist}
 \addbibresource{literature.bib}
 
@@ -86,35 +83,40 @@
 }
 
 \begin{document}
-\pagenumbering{Roman}
-\maketitle                                  % Titelblatt
-% \include{tex/Sperrvermerk}                % Sperrvermerk
-\include{tex/Erklaerung/Erklaerung}         % Erklärung
-\include{tex/Abstract/Abstract}             % Abstract
-\tableofcontents                            % Inhaltsverzeichnis
-\listoffigures                              % Abbildungsverzeichnis
-\listoftables                               % Tabellenverzeichnis
-\printnoidxglossary[
-  type=\acronymtype,
-  title={Abkürzungen},
-  nogroupskip]           % Akronyme
-\printnoidxglossary                         % Glossar
-%\printacronyms
-%\printglossary[
-%  type=\acronymtype,
-%  title={Abkürzungen},
-%  nogroupskip
-%]                                           % Abkürzungsverzeichnis
-%\printglossary[type=main]                   % Abkürzungsverzeichnis
-\clearpage
-\pagenumbering{arabic}
-\pagestyle{fancy}
-\include{tex/Einleitung/Einleitung}             % Einleitung
-\include{tex/Requirements/Requirements}
-\include{tex/UndefinedBehavior/UndefinedBehavior}
-\include{tex/Toolfindung/Toolfindung}
-\include{tex/Zusammenfassung_Ausblick/Zusammenfassung}   % Zusammenfassung
-\include{tex/Anhang/Anhang}                     % Anhang
+    \pagenumbering{Roman}
+    \maketitle                                  % Titelblatt
+    % \include{tex/Sperrvermerk}                % Sperrvermerk
+    \include{tex/Erklaerung/Erklaerung}         % Erklärung
+    \include{tex/Abstract/Abstract}             % Abstract
+    \tableofcontents                            % Inhaltsverzeichnis
+    \listoffigures                              % Abbildungsverzeichnis
+    \listoftables                               % Tabellenverzeichnis
+    \printglossary[
+      type=\acronymtype,
+      title={Abkürzungen},
+      nogroupskip]           % Akronyme
+    \printglossary[type=main]                         % Glossar
+    %\printacronyms
+    %\printglossary[
+    %  type=\acronymtype,
+    %  title={Abkürzungen},
+    %  nogroupskip
+    %]                                           % Abkürzungsverzeichnis
+    %\printglossary[type=main]                   % Abkürzungsverzeichnis
+    \clearpage
+    \pagenumbering{arabic}
+    \pagestyle{fancy}
+    \include{tex/Einleitung/Einleitung}             % Einleitung
+    \include{tex/Requirements/Requirements}
+    \include{tex/UndefinedBehavior/UndefinedBehavior}
+    \include{tex/Toolfindung/Toolfindung}
+    \include{tex/Zusammenfassung_Ausblick/Zusammenfassung}   % Zusammenfassung
 
-\printbibliography                          % Literaturverzeichnis
+    \begingroup
+    \raggedright
+    \sloppy
+    \printbibliography[heading=bibintoc]            % Literaturverzeichnis
+    \endgroup
+
+    \include{tex/Anhang/Anhang}                     % Anhang
 \end{document}
