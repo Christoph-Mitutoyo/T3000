@@ -16,35 +16,56 @@ Die nachfolge Tabelle wurde nach \cite[S.~58-60]{Ebert:SystematischesReqEng} aus
 Eine Analyse der Verantwortung einzelner Stakeholder entfällt, da sich diese in dieser Arbeit mit der Rolle deckt. Zusätzlich arbeitet jeder
 Stakeholder in der gleichen Firma/Abteilung, weshalb die Spalte \glqq{}Verfügbarkeit\grqq{} ausgelassen wird.
 
-\begin{table}[H]
-    {
-        \tiny
-        \begin{tabularx}{\linewidth}{|X|X|X|X|X|}
-            \hline
-            Rolle            & Name                               & Aufgabenbeschreibung                                             & Hintergrundinformationen                                                          & Konfliktpotenzial                                              \\
-            \hline
-            \cline{1-5}
-            Gutachter Intern & T\censor{homas }W\censor{eller}    & Aus- und Weiterbildung des Personals                             & Betreut/bewertet die Studienarbeit \newline Beratung/Analyse von \ref{sec:windbg} &                                                                \\
-            \cline{1-5}
-            Gutachter DHBW   &                                    & Gutachter                                                        & Bewertet die Studienarbeit                                                        &                                                                \\
-            \cline{1-5}
-            Entwickler       &                                    & Softwareentwicklung                                              & Soll Tools benutzen um \gls{ub} zu vermeiden                                      &                                                                \\
-            \cline{1-5}
-            Tester           &                                    & Testen der Software                                              & Weniger Fehler in der Software erleichtern die Arbeit                             &                                                                \\
-            \cline{1-5}
-            Architekt        & D\censor{ieter }B\censor{locher}   & Kontrollieren des Source Code falls Selbstkontrolle nicht klappt & Hat den Bug bearbeitet und behoben                                                & Konflikt mit bisher verwendetem/vorgeschlagenem Tool           \\
-            \cline{1-5}
-            Build Manager    & T\censor{obias }F\censor{riedrich} & DevOps                                                           & Verantwortlich für TFS Zugang und Build Prozesse                                  &                                                                \\
-            \cline{1-5}
-            Geschäftsführer  & P\censor{eter }K\censor{lein}      & Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)    & Finanziert Studium \newline Finanziert Tool                                       & Zeitliche Verfügbarkeit einer Lösung \newline Kosten des Tools \\
-            \cline{1-5}
-            Student          & Christoph Böhringer                & Verfasst die Arbeit                                              &                                                                                   &                                                                \\
-            \hline
-        \end{tabularx}
-    }
+\begin{tiny}
+\begin{longtable}[H]{llL{3cm}L{3cm}L{3cm}}
+            \toprule
+            \thead[l]{Rolle}            & 
+            \thead[l]{Name}                               & 
+            \thead[l]{Aufgabenbeschreibung}                                             & 
+            \thead[l]{Hintergrundinformationen}                                                          & \thead[l]{Konfliktpotenzial}                                              \\
+            \midrule
+            \endhead
+            Gutachter Intern & 
+            T\censor{homas} W\censor{eller}    & 
+            Aus- und Weiterbildung des Personals                             & 
+            Betreut/bewertet die Studienarbeit \newline Beratung/Analyse von \ref{sec:windbg} &                                                                \\
+            \midrule
+            Gutachter DHBW   &                                    
+            & 
+            Gutachter                                                        & 
+            Bewertet die Studienarbeit                                                        &                                                                \\
+            \midrule
+            Entwickler       &                                    
+            & Softwareentwicklung                                              & 
+            Soll Tools benutzen um \gls{ub} zu vermeiden                                      &                                                                \\
+            \midrule
+            Tester           &                                    
+            & 
+            Testen der Software                                              & 
+            Weniger Fehler in der Software erleichtern die Arbeit                             &                                                                \\
+            \midrule
+            Architekt        & 
+            D\censor{ieter} B\censor{locher}   & 
+            Kontrollieren des Source Code falls Selbstkontrolle nicht klappt & 
+            Hat den Bug bearbeitet und behoben                                                & Konflikt mit bisher verwendetem/vorgeschlagenem Tool           \\
+            \midrule
+            Build Manager    & 
+            T\censor{obias} F\censor{riedrich} & DevOps                                                           & 
+            Verantwortlich für TFS Zugang und Build Prozesse                                  &                                                                \\
+            \midrule
+            Geschäftsführer  & 
+            P\censor{eter} K\censor{lein}      & 
+            Ressourcenverteilung (Zeit, Verfügbarkeit der Trainer, \dots)    & 
+            Finanziert Studium \newline Finanziert Tool                                       & Zeitliche Verfügbarkeit einer Lösung \newline Kosten des Tools \\
+            \midrule
+            Student          & 
+            Christoph Böhringer                & 
+            Verfasst die Arbeit                                              &                                                                                   &                                                                \\
+            \bottomrule
     \caption{Stakeholder}
     \label{tab:stakeholder}
-\end{table}
+\end{longtable}
+\end{tiny}
 
 \section{Anforderungen}
 \label{sec:anforderungen}
@@ -58,49 +79,57 @@ Acht gelassen. Es kann auch kein direkter Schaden an Menschen verursacht werden,
 \subsection{Funktionale Anforderungen}
 \label{subsec:funktional}
 
-\begin{table}[H]
-    {
-        \begin{tabularx}{\linewidth}{|p{1cm}|X|p{2cm}|}
-            \hline
-            ID  & Beschreibung                                                                               & Stakeholder              \\
-            \hline
-            \cline{1-3}
-            F-1 & Das Tool soll nicht initialisierte Variablen hervorheben                                   & TW, DB, \ref{sec:windbg} \\
-            \cline{1-3}
-            F-2 & Das Tool soll Nullpointer Dereferenzierung hervorheben                                     & TW                       \\
-            \cline{1-3}
-            F-3 & Das Tool soll keinen/möglichst wenig korrekten Code hervorheben                            & DB, TF                   \\
-            \cline{1-3}
-            F-4 & Das Tool soll über eine config oder cmd Datei automatisierbar sein                         & DB, TF                   \\
-            \cline{1-3}
-            F-5 & Das Tool soll erklären warum eine Stelle hervorgehoben wurde und Lösungsvorschläge liefern & DB                       \\
-            \cline{1-3}
-            F-6 & Das Tool soll eine Risikoanalyse der markierten Fehler durchführen                         & DB                       \\
-            \hline
-        \end{tabularx}
-    }
+\begin{longtable}{lL{10cm}l}
+            \toprule
+            \thead[l]{ID}  & 
+            \thead[l]{Beschreibung} & 
+            \thead[l]{Stakeholder}              \\
+            \midrule
+            \endhead
+            F-1 & 
+            Das Tool soll nicht initialisierte Variablen hervorheben       & 
+            TW, DB, \ref{sec:windbg} \\
+            \midrule
+            F-2 & 
+            Das Tool soll Nullpointer Dereferenzierung hervorheben     & 
+            TW                       \\
+            \midrule
+            F-3 & 
+            Das Tool soll keinen/möglichst wenig korrekten Code hervorheben      & 
+            DB, TF                   \\
+            \midrule
+            F-4 & 
+            Das Tool soll über eine config oder cmd Datei automatisierbar sein & 
+            DB, TF                   \\
+            \midrule
+            F-5 & 
+            Das Tool soll erklären warum eine Stelle hervorgehoben wurde und Lösungsvorschläge liefern & 
+            DB                       \\
+            \midrule
+            F-6 & 
+            Das Tool soll eine Risikoanalyse der markierten Fehler durchführen& 
+            DB                       \\
+            \bottomrule
     \caption{Funktionale Anforderungen}
     \label{tab:funktional}
-\end{table}
+\end{longtable}
 
 \subsection{Nichtfunktionale Anforderungen}
 \label{subsec:nichtfunktional}
 
-\begin{table}[H]
-    {
-        \begin{tabularx}{\linewidth}{|p{1cm}|X|p{2cm}|}
-            \hline
-            ID   & Beschreibung                                                                   & Stakeholder \\
-            \hline
-            \cline{1-3}
-            NF-1 & Das Tool ist mit anderen, bereits im Unternehmen verwendeten, Tools kompatibel & TF, DB      \\
-            \cline{1-3}
-            NF-2 & Das Tool liegt innerhalb der Kostenvorstellung                                 & PK          \\
-            \cline{1-3}
-            NF-3 & Für das Tool ist eine Anwendungsanleitung verfügbar                            & DB          \\
-            \hline
-        \end{tabularx}
-    }
+\begin{longtable}{lL{10cm}l}
+    \toprule
+    \thead[l]{ID}  & 
+    \thead[l]{Beschreibung} & 
+    \thead[l]{Stakeholder}              \\
+    \midrule
+    \endhead
+    NF-1 & Das Tool ist mit anderen, bereits im Unternehmen verwendeten, Tools kompatibel & TF, DB      \\
+    \midrule
+    NF-2 & Das Tool liegt innerhalb der Kostenvorstellung                                 & PK          \\
+    \midrule
+    NF-3 & Für das Tool ist eine Anwendungsanleitung verfügbar                            & DB          \\
+    \bottomrule
     \caption{Nichtfunktionale Anforderungen}
     \label{tab:nichtfunktional}
-\end{table}
+\end{longtable}

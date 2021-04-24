@@ -4,9 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{color}
-\usepackage[hidelinks]{hyperref}                    % Hyperlinks (z.B. Inhaltsverzeichnis)
-
-\usepackage{hyperref}
+\usepackage[hidelinks, unicode]{hyperref}                    % Hyperlinks (z.B. Inhaltsverzeichnis)
 
 \usepackage[a4paper, lmargin={2.5cm}, rmargin={2.5cm}, tmargin={2.5cm}, bmargin={2.5cm}]
     {geometry}
@@ -15,9 +13,19 @@
 \usepackage{graphicx}                               % Bilder
 \usepackage{wrapfig}
 \RequirePackage[export]{adjustbox}                  % Positionierung von Bildern
+
 \usepackage{tabularx}                               % Tabellen
 \usepackage{tabulary}                               % Tabellen
 \usepackage{longtable}                              % Tabellen
+\usepackage{array}                                  % Tabellen mit Spaltenformaten
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{booktabs}                               % Tabellen mit hübschen Linien
+\usepackage{multirow}                               % Tabellenzeile über mehrere Zeilen
+\usepackage{makecell}                               % Tabellen-Überschriften
+\renewcommand\theadfont{\bfseries}
+
 \usepackage{listings}
 \usepackage{multirow}                               % Tabellenzeile über mehrere Zeilen
 \usepackage{float}                                  % Exakte Platzierung von Objekten mit H-Modifier
@@ -28,7 +36,7 @@
 \usepackage[style=numeric, sorting=none, doi=false, isbn=false]{biblatex}    % Zitieren
 \usepackage{csquotes}                               % Empfohlen bei Verwendung von biblatex
 \usepackage[acronym, toc, nopostdot, nonumberlist]
-    {glossaries}                                    % Abkürzungsverzeichnis
+    {glossaries-extra}                                    % Abkürzungsverzeichnis
 
 \usepackage[nottoc]{tocbibind}                      % Abbildungs-, Tabellen- und Literaturverzeichnis im Inhaltsverzeichnis
 

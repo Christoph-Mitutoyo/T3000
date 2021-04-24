@@ -9,7 +9,12 @@
    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
    morestring=[b]" % strings are enclosed in double quotes
 } % 
-\lstset{language=WinDbg}
+\lstset{
+   language=WinDbg,
+   breaklines=true,
+   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+   breakatwhitespace=false
+}
 
 \section{WinDbg Crash Analyse}
 \label{sec:windbg}
@@ -461,7 +466,7 @@ Es ist allerdings zu berücksichtigen, dass im Fall von Undefined Behavior alle 
 \caption{Source Code des Unit Tests, der die Access Violation bestätigt}
 \end{figure}
 
-\verb|tg_ajc_lin_ext()| ruft \verb|tg_ajc_lin_int()| auf. \verb|pLoc| wird an die Funktion \verb|pln_para_pnt()| übergeben, die das Skalarprodukt ausrechnet (\verb|vec_sca_prod()|).
+Die Funktion \verb|tg_ajc_lin_ext()| ruft \verb|tg_ajc_lin_int()| auf. \verb|pLoc| wird an die Funktion \verb|pln_para_pnt()| übergeben, die das Skalarprodukt ausrechnet (\verb|vec_sca_prod()|).
 Hierbei wird NaN weiterpropagiert, so dass auch \verb|Dist| NaN wird.
 
 Die Funktion \verb|min_max_dist_pln()| bekommt \verb|Dist| übergeben und propagiert ihn an \verb|D|. Dadurch ergeben alle Vergleiche im Code
