@@ -3,37 +3,16 @@
 
 Bewertungsmatrix: tool, Anforderung, gewichtung der anforderung, gesamtpunktzahl
 clang: https://clang.llvm.org/docs/ClangTools.html
-\begin{table}[H]
-    {
-        \begin{tabularx}{\linewidth}{|X|X|p{2cm}|X|}
-            \hline
-            Anforderung & Erfüllt? & Gewichtung & Punktzahl \\
-            \hline
-            \cline{1-4}
-            F-1         &          &            &           \\
-            \cline{1-4}
-            F-2         &          &            &           \\
-            \cline{1-4}
-            F-3         &          &            &           \\
-            \cline{1-4}
-            F-4         &          &            &           \\
-            \cline{1-4}
-            F-5         &          &            &           \\
-            \cline{1-4}
-            F-6         &          &            &           \\
-            \cline{1-4}
-            NF-2        &          &            &           \\
-            \cline{1-4}
-            NF-3        &          &            &           \\
-            \hline
-        \end{tabularx}
-    }
-    \caption{Bewertungsmatrix zu Clang}
-    \label{tab:clang}
-\end{table}
+
 
 gcc
-valgrind
+valgrind -> linux
 cppcheck
 pvs-studio
 gimpel lint -> nur für linux
+
+kriterien: ub nichtinitialisiert, ub null pointer, korrekter code, automatisierbar, warum, risikoanalyse, kosten, anleitung
+pc-lint plus: gibt warnungen für ub, kein korrekter code markiert, läuft über cmd -> also ja, erklärt, not really, ?->team-lizenz, hat anleitung, integrierbar in visual studio
+cpp: error bei uninitialized, pointer warning, kein korrekter markiert, über cmd->ja, ja, not really, free, ja
+clang++/gcc UBSan: warnungen für ub, teilweise korrekter, über cmd-> ja, ja, not really, free, ja            nicht static
+pvs-studio:
