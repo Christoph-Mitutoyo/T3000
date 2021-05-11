@@ -18,9 +18,9 @@ Software fehlerhaft ist.
 
 Der C++ Standard\cite{book:cpp-standard} beschreibt über 500 verschieden Ursachen für \gls{ub}. Eine genauere Beschreibung aller Ursachen wird aufgrund der Anzahl nicht durchgeführt.
 
-\textbf{Undefinierte Variablen:} Entgegen erster Annahmen, dass undefinierte Variablen zwingend zu \gls{ub} führen, ist dies seit 2014 nicht mehr der Fall, da sich die
+\textbf{Nicht initialisierte Variablen:} Entgegen erster Annahmen, dass nicht initialisierte Variablen zwingend zu \gls{ub} führen, ist dies seit 2014 nicht mehr der Fall, da sich die
 \glspl{callingconvention} geändert haben. Der Wert einer undefinierten Variable ist nun als \glqq{}indeterminate\grqq{} festgelegt\cite[S.63]{book:cpp-standard}.
-\gls{ub} tritt erst dann auf, wenn die undefinierte Variable ausgewertet wird (vgl. \ref{subsec:indeterminate}). Hierzu bestehen allerdings Ausnahmen, wenn \verb|unsigned|
+\gls{ub} tritt erst dann auf, wenn die nicht initialisierte Variable ausgewertet wird (vgl. \ref{subsec:indeterminate}). Hierzu bestehen allerdings Ausnahmen, wenn \verb|unsigned|
 Variablen verwendet werden. \cite[S.63]{book:cpp-standard}
 
 \textbf{Nullpointer Dereferenzierung:} Der Versuch den Wert der Adresse eines Nullpointers zu lesen, endet in \gls{ub}. \cite[S.188]{book:cpp-standard} (vgl. \ref{subsec:nullpointer})
@@ -39,7 +39,7 @@ Einige weitere Ursachen von \gls{ub} sind:
 
 \gls{ub} ermöglicht dem \gls{compiler} Code-Optimierungen durchzuführen, indem der \gls{compiler} davon ausgeht, dass das Programm nur definierte Operationen durchführt. \cite[S.633]{book:taming-ub}
 
-Das Verwenden von \gls{ub} resultiert in einer Optimierung der Perfomance. Für diese wird jedoch die Vorhersehbarkeit und Sicherheit des Codes eingeschränkt. \cite[S.633]{book:taming-ub} \\
+Das Verwenden von \gls{ub} resultiert in einer Optimierung der Performance. Für diese wird jedoch die Vorhersehbarkeit und Sicherheit des Codes eingeschränkt. \cite[S.633]{book:taming-ub} \\
 Es wird den Entwicklern überlassen das Auftreten von \gls{ub} zu verhindern oder zu minimieren.
 
 Andere Programmiersprachen, wie Java, sollen in ihrer \gls{ir} das Auftreten von \gls{ub} verringern oder verhindern. \cite[S.633]{book:taming-ub}

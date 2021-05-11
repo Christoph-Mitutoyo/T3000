@@ -52,15 +52,3 @@ unsigned char x = 12;
 }
 \end{lstlisting}
 \cite[S.35]{book:cpp-standard}
-
-If a side effect on a memory location (6.7.1) is unsequenced relative to either another
-side effect on the same memory location or a value computation using the value of any object in the same
-memory location, and they are not potentially concurrent (6.9.2), the behavior is undefined.
-
-void g(int i) {
-        i = 7, i++, i++; // i becomes 9
-        i = i++ + 1; // the value of i is incremented
-        i = i++ + i; // undefined behavior
-        i = i + 1; // the value of i is incremented
-    }
-(S.80)
