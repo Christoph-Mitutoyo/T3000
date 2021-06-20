@@ -25,7 +25,7 @@ Benötigte Tools:
     \item WinDbg Preview \cite{misc:windbgpreview}
     \item Crash Dump des Bugs\footnotemark
     \item Symbol-Dateien des Codes -> GEOPAK64.pdb, MnGeom364.pdb \footnotemark[\value{footnote}] \footnotetext{Erreichbar unter H:\textbackslash thomasW\textbackslash v\_DB}
-    \item Zugriff auf Azure DevOps Server von Mitutoyo-CTL Germany GmbH
+    \item Zugriff auf den Azure DevOps Server von Mitutoyo-CTL Germany GmbH
 \end{itemize}
 
 Um den Crash Dump nun zu analysieren, wird dieser mit WinDbg Preview über die Funktion \glqq{}Open dump file\grqq{} geöffnet.
@@ -39,11 +39,11 @@ Benötigte Tools:
 \begin{itemize}
     \item Windows Betriebssystem
     \item Visual Studio 2017 oder Visual Studio 2019 ohne Updates
-    \item Zugriff auf den Azure DevOps Serever von Mitutoyo-CTL Germansy GmbH
+    \item Zugriff auf den Azure DevOps Serever von Mitutoyo-CTL Germany GmbH
     \item Git Extensions oder ein ähnliches Tool zum Klonen von Git Repositorys
 \end{itemize}
 
-Damit der Source Code kompiliert werden kann, muss dieser zuest mit Git Extensions (oder einem ähnlichen Tool) von
+Damit der Source Code kompiliert werden kann, muss dieser zuerst mit Git Extensions (oder einem ähnlichen Tool) von
 \url{http://tfs-ctlg.mitutoyo-ctl.de/Public/Projects/_git/Mitutoyo.MCOSMOS.BasicsLibs} geklont werden. Damit der Bug noch vorhanden ist, sollte der Source Code vom Stand des
 Commits \verb|bb882af1| verwendet werden. \newline
 Anschließend öffnet man die Projekt-Datei \textit{Mitutoyo.MCOSMOS.BasicsLibs\textbackslash Source\textbackslash MBa\allowbreak sicsLibs.sln} mit Visual Studio.
