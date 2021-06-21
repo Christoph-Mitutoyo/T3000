@@ -52,7 +52,8 @@ ergab keinen Fehler, welcher sich mit uninitialisierten variablen beschäftigt. 
 Im Kontrast dazu erkennt PVS-Studio alle erwarteten Fehler im Code-Beispiel \ref{subsec:indeterminate}. Durch eine Integration, und erfolgreiche Fehlererkennung, des Beispiel-Codes in
 \glqq{}TG\_GEOM.C\grqq{} wurde widerlegt, dass PVS-Studio mit der Menge an Code überfordert ist. \newline
 PVS-Studio erkennt nicht initialisierte Variablen erfolgreich in dem Code-Beispiel. In \glqq{}TG\_GEOM.C\grqq{} werden allerdings keine uninitialisierten Variablen gefunden. Dafür
-werden zahlreiche andere Fehler markiert. PVS-Studio erhält somit für F-1 eine Bewertung von 65\%.
+werden zahlreiche andere Fehler markiert. PVS-Studio erhält somit für F-1 eine Bewertung von 65\%. 50\% für eine korrekte Fehlererkennung im Beispielcode und 15\% für eine allgemein
+sehr gute Fehlererkennung.
 
 PVS-Studio markiert den in \ref{subsec:nullpointer} beschriebenen Code erfolgreich als fehlerhaft und erkennt fehlerhafte Benutzung von Pointern beispielsweise in
 \glqq{}CryptoPP/algparam.h\grqq{} Zeile 36. Somit bekommt das Tool eine Wertung von 80\% für F-2. 20\% werden abgezogen, da keine explizite Nullpointerdereferenzierung
@@ -67,13 +68,18 @@ Alle weiteren Tools werden unter den gleichen Bedienungen, wie PVS-Studio getest
   \centering
   \includegraphics[width=1\textwidth]{cppcheck-mngeom}
   \caption{Von Cppcheck im Ordner MnGeom3 erkannte Fehler}
-  \label{img:pvs-tg-geom}
+  \label{img:cppcheck-mngeom}
 \end{figure}
 
 Im Ordner \glqq{}MnGeom3\grqq{} erkennt Cppcheck die in \glqq{}TG\_GEOM.C\grqq{} vorhandenen Test-Fehler und zusätzlich uninitialisierte Variablen in \glqq{}BGM\_GEOM.C\grqq{}. Letztere
 sind zu Beginn nicht initialisiert, zum Zeitpunkt, an welchem Cppcheck diese als Fehler markiert, sind die Variablen allerdings initialisiert. \newline
 
-Cppcheck erkennt Nullpointerderefernzierung im Code-Beispiel \ref{subsec:nullpointer}, auch in der Solution von MBasicLibs werden
+Cppcheck erkennt Nullpointerderefernzierung im Code-Beispiel \ref{subsec:nullpointer}, auch in der Solution von MBasicLibs werden beispielsweise in \glqq{}CryptoPP/algparam.h\grqq{}
+mehrere Nullpointerdereferenzierungen markiert.
+
+Für F-1 erhält Cppcheck 45\%. 50\% für eine korrekte Fehlererkennung im Beispielcode und -5\% für false positives. \newline
+Für F-2 erhält Cppcheck 75\%. 50\% für eine korrekte Fehlererkennung im Beispielcode und 25\% für das Erkennen von Nullpointerderefernzierungn in MBasicLibs. Dort wurden allerdings
+jedes Auftreten des Schlüsselworts \textit{NULL} als Nullpointerdereferenzierung markiert. Deshalb keine 100\%.
 
 \section{Auswahl}
 \label{sec:auswahl}
