@@ -36,15 +36,44 @@ vorläufig mit 50\% bewertet.
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.85\textwidth]{pvs-tg_geom}
+  \includegraphics[width=1\textwidth]{pvs-tg-geom}
   \caption{Ausschnitt der von PVS-Studio gemeldeten Fehler}
-  \label{img:pvs-tg_geom}
+  \label{img:pvs-tg-geom}
 \end{figure}
 
-Das Plugin von PVS-Studio für Visual Studio kann circa 600 verschiedene Fehler erkennen und mit einer kurzen Beschreibung ausgeben. Es kann dabei frtei ausgewählt werden, welche Arten von
+Die Extension von PVS-Studio für Visual Studio kann circa 600 verschiedene Fehler erkennen und mit einer kurzen Beschreibung ausgeben. Es kann dabei frei ausgewählt werden, welche Arten von
 Fehlern gemeldet werden sollen. \newline
-Wird nur die Datei \glqq{}TG_GEOM.C\grqq{} analysiert, so gibt das Tool insgesamt 361 Fehlermeldungen in der Datei aus. Die Fehler werden dabei in die Kategorien \glqq{}High\grqq{}
-(0 Fehler), \glqq{}Medium\grqq{} (227 Fehler) und \glqq{}Low\grqq{} (134 Fehler) eingestuft. Zusätzlich in \ref{img:pvs-tg_geom} gemeldete Fehler stammen aus anderen Dateien.
+Wird nur die Datei \glqq{}TG\_GEOM.C\grqq{} analysiert, so gibt das Tool insgesamt 361 Fehlermeldungen in der Datei aus. Die Fehler werden dabei in die Kategorien \glqq{}High\grqq{}
+(0 Fehler), \glqq{}Medium\grqq{} (227 Fehler) und \glqq{}Low\grqq{} (134 Fehler) eingestuft. Zusätzlich in \ref{img:pvs-tg-geom} gemeldete Fehler stammen aus anderen Dateien.
+
+PVS-Studio erkennt keine uninitialisierten Variablen in der analysierten Datei, obwohl dies beispeilsweise in Zeile 992 der Fall ist. Eine erste Annahme, dass dies geschieht, weil die
+Variablen nicht direkt ausgewertet werden, sondern über verschiedene Dateien in verschiedenen Funktionen aufgerufen werden, wurde wiederlegt. Auch eine Analyse der gesamten Solution
+ergab keinen Fehler, welcher sich mit uninitialisierten variablen beschäftigt. \newline
+Im Kontrast dazu erkennt PVS-Studio alle erwarteten Fehler im Code-Beispiel \ref{subsec:indeterminate}. Durch eine Integration, und erfolgreiche Fehlererkennung, des Beispiel-Codes in
+\glqq{}TG\_GEOM.C\grqq{} wurde widerlegt, dass PVS-Studio mit der Menge an Code überfordert ist. \newline
+PVS-Studio erkennt nicht initialisierte Variablen erfolgreich in dem Code-Beispiel. In \glqq{}TG\_GEOM.C\grqq{} werden allerdings keine uninitialisierten Variablen gefunden. Dafür
+werden zahlreiche andere Fehler markiert. PVS-Studio erhält somit für F-1 eine Bewertung von 65\%.
+
+PVS-Studio markiert den in \ref{subsec:nullpointer} beschriebenen Code erfolgreich als fehlerhaft und erkennt fehlerhafte Benutzung von Pointern beispielsweise in
+\glqq{}CryptoPP/algparam.h\grqq{} Zeile 36. Somit bekommt das Tool eine Wertung von 80\% für F-2. 20\% werden abgezogen, da keine explizite Nullpointerdereferenzierung
+aufgezeigt wurde.
+
+Anmerkung: Die Analysezeit für die gesamte Solution betrug circa eine Minute. \newline
+Alle weiteren Tools werden unter den gleichen Bedienungen, wie PVS-Studio getestet.
+
+\subsection{Cppcheck}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=1\textwidth]{cppcheck-mngeom}
+  \caption{Von Cppcheck im Ordner MnGeom3 erkannte Fehler}
+  \label{img:pvs-tg-geom}
+\end{figure}
+
+Im Ordner \glqq{}MnGeom3\grqq{} erkennt Cppcheck die in \glqq{}TG\_GEOM.C\grqq{} vorhandenen Test-Fehler und zusätzlich uninitialisierte Variablen in \glqq{}BGM\_GEOM.C\grqq{}. Letztere
+sind zu Beginn nicht initialisiert, zum Zeitpunkt, an welchem Cppcheck diese als Fehler markiert, sind die Variablen allerdings initialisiert. \newline
+
+Cppcheck erkennt Nullpointerderefernzierung im Code-Beispiel \ref{subsec:nullpointer}, auch in der Solution von MBasicLibs werden
 
 \section{Auswahl}
 \label{sec:auswahl}
@@ -55,4 +84,4 @@ Jedoch zeigen die anderen Tools keine übermäßigen Abweichungen auf und könne
 Zur optimalen Toolfindung empfiehlt sich somit das Testen der einzelnen Tools in einem größeren Projektumfeld. Die kostenpflichtigen Tools bieten für diesen Zweck kostenlose
 Testlizenzen an. Attraktiv ist hierbei PVS-Studio, da dieses mit einer Extension in Visual Studio integriert werden kann. Allerdings ist PVS-Studio allgemein weniger bekannt und die Suche nach Online-Hilfe ist somit schwieriger. \newline
 Zusätzlich können die kostenfreien Tools ergänzend zu dem schlussendlich ausgewählten Tool eingesetzt werden. Dies ermöglicht eine höhere Fehlerabdeckung, garantiert allerdings nicht,
-dass neue/mehr Fehler erkannt werden. Da das Einsetzen der kostenlosen Tools nur Zeit kostet, ist der Einsatz dieser immer eine Überlegung wert.
+dass neue, beziehungsweise mehr, Fehler erkannt werden. Da das Einsetzen der kostenlosen Tools nur Zeit kostet, ist der Einsatz dieser immer eine Überlegung wert.
