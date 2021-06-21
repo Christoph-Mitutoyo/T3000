@@ -19,9 +19,14 @@
 \begin{lstlisting}
     int f(bool b) {
         unsigned char c;
-        unsigned char d = c; // OK, d has an indeterminate value
-        int e = d; // undefined behavior
-        return b ? d : 0; // undefined behavior if b is true
+        unsigned char d = c; // OK, d has an indeterminate value 
+        int e = d; // undefined behavior -> expect error
+        return b ? d : 0; // undefined behavior if b is true -> expect error
+    }
+    
+    void main() {
+        bool a;
+        f(a); // uninitialized var a used -> expect error
     }
 \end{lstlisting}
 \cite[S.63 f.]{book:cpp-standard}
